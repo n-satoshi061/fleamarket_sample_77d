@@ -64,7 +64,7 @@
 - has_many :product_categories
 
 
-##Categories
+## Categories
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false|
