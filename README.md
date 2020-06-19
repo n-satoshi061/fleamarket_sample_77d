@@ -1,6 +1,6 @@
 # README
 
-![](https://i.gyazo.com/0aa1ecf50f71d04842fc16c175284141.png)
+![](https://i.gyazo.com/5da05bb14178e5076ea2863de6c956eb.png)
 
 ## Usersテーブル
 |Column|Type|Options|
@@ -25,7 +25,7 @@
 ### Association
 - has_one  :card
 - has_many :products
-- has_many :address
+- has_many :addresses
 
 
 ## Addressesテーブル
@@ -36,7 +36,7 @@
 |city|string|null: false|
 |block|string|null: false|
 |building|string||
-|user|references|foreign_key: true|
+|user|references|foreign_key: true, null: false|
 
 ### Association
 - belongs_to  :user
@@ -47,7 +47,7 @@
 |------|----|-------|
 |card_id|string|null: false|
 |customer_id|t.string|null: false|
-|user|references|foreign_key: true|
+|user|references|foreign_key: true, null: false|
 
 ### Association
 - belongs_to :user
@@ -63,9 +63,8 @@
 |delivery_leadtime|string|null: false|
 |delivery_way|string|null: false|
 |status|string|null: false|
-|user|references|foreign_key: true|
-|category|references|foreign_key: true|
-|image|references|foreign_key: true|
+|user|references|foreign_key: true, null: false|
+|category|references|foreign_key: true, null: false|
 
 ### Association
 - has_many   :images
@@ -88,7 +87,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|product|references|foreign_key: true|
+|product|references|foreign_key: true, null: false|
 
 ### Association
 - belongs_to :product, optional:true, dependent: :destroy
