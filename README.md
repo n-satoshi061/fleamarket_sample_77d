@@ -62,7 +62,7 @@
 |from_area|string|null: false|
 |delivery_leadtime|string|null: false|
 |delivery_way|string|null: false|
-|status|string|null: false|
+|status|integer|null: false|
 |user|references|foreign_key: true, null: false|
 |category|references|foreign_key: true, null: false|
 
