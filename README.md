@@ -1,6 +1,6 @@
 # README
 
-![](https://i.gyazo.com/32d5693cc93ca708eb68e4f8f440b6c0.png)
+![](https://i.gyazo.com/0aa1ecf50f71d04842fc16c175284141.png)
 
 ## Usersテーブル
 |Column|Type|Options|
@@ -34,8 +34,9 @@
 |postal_code|integer|null: false|
 |prefecture|string|null: false|　　
 |city|string|null: false|
-|address|string|null: false|
+|block|string|null: false|
 |building|string||
+|user|references|foreign_key: true|
 
 ### Association
 - belongs_to  :user
@@ -72,12 +73,11 @@
 - belongs_to :category
 
 
-##Categories
+## Categories
 |Column|Type|Options|
 |------|----|-------|
 |text|string|null: false|
 |ancestry|string|
-|product|references|foreign_key: true|
 
 ### Association
 - has_many :products
