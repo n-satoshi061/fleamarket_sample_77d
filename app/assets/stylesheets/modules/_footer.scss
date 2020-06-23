@@ -1,12 +1,12 @@
+
 // footer-publicity
 .publicity{
-  height: 260px;
-  width: 100vw;
-  background-image: url("https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg");
-  background-position: center;
+  background-image: image-url("pict/bg-appBanner-pict.jpg");
+  padding: 100px 40px;
+  position: relative;
   background-size: cover;
-  @extend %centering;
-  @extend %global-font;
+  background-position: center;
+
   &__box{
     display: flex;
     justify-content: space-between;
@@ -32,12 +32,6 @@
           opacity: 1;
           &:hover{
             opacity: 0.7;
-          }
-        }
-        &__mercari{          
-          img{
-            width: 68px;
-            height: 68px;
           }
         }
         &__appstore{
@@ -68,7 +62,7 @@
 // footer-introduction
 .footer{
   background-color: rgb(33,33,33);
-  color: $normal-white;
+  color: white;
   padding: 0 20px 10px;
   font-family:Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   font-weight: 500;
@@ -87,7 +81,7 @@
     width:auto;
     display: block;
     text-decoration: none;
-    color: $normal-white;
+    color: white;
     opacity: 0.7;
     font-size: 12px;
   }
@@ -131,7 +125,6 @@
     margin:30px auto 20px;
     display: flex;
     align-items: center;
-    @extend %centering;
     position: relative;
     &__logo{
       position: absolute;
