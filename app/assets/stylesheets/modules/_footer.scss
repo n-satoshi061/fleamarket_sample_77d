@@ -1,0 +1,182 @@
+// footer-publicity
+.publicity{
+  height: 260px;
+  width: 100vw;
+  background-image: url("https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg");
+  background-position: center;
+  background-size: cover;
+  @extend %centering;
+  @extend %global-font;
+  &__box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 750px;
+    height: 100%;
+    &__left{      
+      height: 166px;
+      &__description{
+        color: rgb(255, 255, 255);
+        font-size: 24px;
+        font-weight: 600;
+      }
+      &__reminder{
+        color: rgb(255, 255, 255);
+        font-size: 35px;
+      }
+      &__logos{        
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        a{
+          opacity: 1;
+          &:hover{
+            opacity: 0.7;
+          }
+        }
+        &__mercari{          
+          img{
+            width: 68px;
+            height: 68px;
+          }
+        }
+        &__appstore{
+          img{
+            width: 133px;
+            height: 40px;
+            margin-left: 24px;
+          }
+        }
+        &__google{
+          img{
+            width: 133px;
+            height: 40px;
+            margin-left: 16px;
+          }
+        }
+      }
+    }
+    &__image{
+      img{
+        width: 300px;
+        height: 260px;
+      }
+    }
+  }
+}
+
+// footer-introduction
+.footer{
+  background-color: rgb(33,33,33);
+  color: $normal-white;
+  padding: 0 20px 10px;
+  font-family:Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-weight: 500;
+  flex-direction: column;
+  li{
+    margin-top: 16px;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  h2{
+    font-size: 16px;
+    font-weight: bold;
+  }
+  a{
+    width:auto;
+    display: block;
+    text-decoration: none;
+    color: $normal-white;
+    opacity: 0.7;
+    font-size: 12px;
+  }
+  .footer-content{
+    height: 241px;
+    padding-right: 20px;
+    margin-top: 18px;
+  }
+  .footer__top{
+    width:1020px;
+    display: flex;
+    &__about{
+        a{
+          width: 42px;
+          opacity: 1;
+        }
+      }
+    }
+    &__helpguide{
+      padding-right: 40px;
+      height: auto;
+    }
+  //   &__privacy-law{
+  //     padding-right: 40px;
+  //     width: 388.391px;
+  //     &__wrapper{
+  //       display: flex;
+  //       &__privacy{
+  //         width:calc(388.391px / 2);
+  //         padding-right: 20px;
+  //       }
+  //       &__law{
+  //         width:calc(388.391px / 2);
+  //       }
+  //     }
+  //   }
+  // }
+  .footer__bottom{
+    width: 1020px;
+    height: 33px;
+    margin:30px auto 20px;
+    display: flex;
+    align-items: center;
+    @extend %centering;
+    position: relative;
+    &__logo{
+      position: absolute;
+      left: 0;
+      text-align: left;
+      a{
+        opacity: 1;
+      }
+      img{
+        width: 124px;
+        height: 33px;
+      }
+    }
+    &__copyright{
+      position: absolute;
+      text-align: center;
+      line-height: auto;
+      font-size: 12px;
+    }
+  }
+}
+
+
+
+
+// 画面下部のカメラ部
+.bottom-camera{
+  width: 120px;
+  background: #3CCACE;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  &__text{
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+  &__icon{
+    .camera-image{
+      width: 60%;
+    }
+  }
+}

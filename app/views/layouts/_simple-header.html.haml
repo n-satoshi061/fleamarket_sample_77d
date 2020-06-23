@@ -1,0 +1,32 @@
+%header
+  .box
+    .box__top
+      .box__top__title
+        = link_to root_path do
+          = image_tag src="https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg", size: "134x36"
+      .box__top__search
+        = text_field :keyword,{placeholder: "何かお探しですか？", class: "box__top__search__form__input"}
+        -# = button type: "submit",class: "search-btn" do
+        %i.fa.fa-search
+    .box__lower
+      .box__lower__left
+        .box__lower__left__category
+          = link_to class: "" do
+            %i.fa.fa-list-ul
+            カテゴリーから探す
+          .box__lower__left__category__wrapper
+            %ul.category_box.category_index_box
+              %li
+                カテゴリ一覧
+        .box__lower__left__brand
+          = link_to class: "" do
+            %i.fa.fa-tag
+            ブランドから探す
+      .box__lower__right
+        %ul.box__lower__right__list
+          %li.box__lower__right__list__signup  
+            = link_to "#",class: "submit-btn submit-btn-red header-registration-btn" do
+              新規会員登録
+          %li.box__lower__right__list__sigin
+            = link_to "#",class: "submit-btn header-registration-btn header-signin-btn" do
+              ログイン
