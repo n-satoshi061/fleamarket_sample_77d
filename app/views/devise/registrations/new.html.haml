@@ -1,0 +1,193 @@
+%header.header
+  .header__logo
+    %a{href: "#"}
+      %img{alt: "ヘッダーロゴ", src: "../../../assets/images/material/logo/logo.png"}/
+.main
+  .main__container
+    .main__container__top
+      %h1.main__container__top__content 会員情報入力
+    %form(action="#")
+      .main__container__input
+        .main__container__input__default
+          %label(for="avatar") プロフィール画像
+          .main__container__input__default__box
+            %input{type: "file", class: "main__container__input__default__box__avatar"}/
+        .main__container__input__default
+          %label(for="nickname") ニックネーム
+          %span.main__container__input__default__require 必須
+          .main__container__input__default__box
+            %input{placeholder: "例)メルカリ太郎", type: "text", class: "main__container__input__default__box__place"}/
+        .main__container__input__default
+          %label(for="email") メールアドレス
+          %span.main__container__input__default__require 必須
+          .main__container__input__default__box
+            %input{placeholder: "PC・携帯どちらでも可", type: "email", class: "main__container__input__default__box__place"}/
+        .main__container__input__default
+          %label(for="tel") 電話番号
+          %span.main__container__input__default__require 必須
+          .main__container__input__default__box
+            %input{placeholder: "例)123456789", type: "tel", class: "main__container__input__default__box__place"}/
+        .main__container__input__default
+          %label(for="post_cord") 郵便番号
+          %span.main__container__input__default__require 必須
+          .main__container__input__default__box
+            %input{placeholder: "例)1234567", type: "number", class: "main__container__input__default__box__place"}/
+        .main__container__input__default
+          %label(for="prefecture") 都道府県
+          %span.main__container__input__default__require 必須
+          .main__container__input__default__box
+            %select{name: "prefecture", class: "main__container__input__default__box__prefecture"}
+              %option{value: "--"} --
+              %option{value: "A"} A型
+              %option{value: "B"} B型
+              %option{value: "O"} O型
+              %option{value: "AB"} AB型
+        .main__container__input__default
+          %label(for="city") 市区町村
+          %span.main__container__input__default__require 必須
+          .main__container__input__default__box
+            %input{placeholder: "例)横浜市緑区", type: "text", class: "main__container__input__default__box__place"}/
+        .main__container__input__default
+          %label(for="block") 番地
+          %span.main__container__input__default__require 必須
+          .main__container__input__default__box
+            %input{placeholder: "例)青山1-1-1", type: "text", class: "main__container__input__default__box__place"}/
+        .main__container__input__default
+          %label(for="building") ビル名・部屋番号
+          .main__container__input__default__box
+            %input{placeholder: "例)柳ビル103", type: "text", class: "main__container__input__default__box__place"}/
+        .main__container__input__default
+          %label(for="password") パスワード
+          %span.main__container__input__default__require 必須
+          .main__container__input__default__box
+            %input{placeholder: "7文字以上の半角英数字", type: "password", class: "main__container__input__default__box__place"}/
+          .main__container__input__default__danger
+            %p ※英字と数字の両方を含めて設定してください
+            .main__container__input__default__danger__password
+              %input{type: "checkbox", class: "checkbox"}/
+              %label(for="reveal_password" class="pass") パスワードを表示する
+        .main__container__input__conf
+          %h3.main__container__input__conf__person 本人確認
+          %p.main__container__input__conf__safe
+            安心・安全にご利用いただくために、お客さまの本人
+            %br/
+            情報の登録にご協力ください。他のお客さまに公開さ
+            %br/
+            れることはありません。
+        .main__container__input__default
+          %label(for="name") お名前(全角)
+          %span.main__container__input__default__require 必須
+          .main__container__input__default__box
+            %input{placeholder: "例)山田", type: "text", class: "half_input"}/
+            %input{placeholder: "例)彩", type: "text", class: "half_input"}/
+        .main__container__input__default
+          %label(for="name") お名前カナ(全角)
+          %span.main__container__input__default__require 必須
+          .main__container__input__default__box
+            %input{placeholder: "例)ヤマダ", type: "text", class: "half_input"}/
+            %input{placeholder: "例)アヤ", type: "text", class: "half_input"}/
+        .main__container__input__default
+          %label(for="birthday") 生年月日
+          %span.main__container__input__default__require 必須
+          %form{action: "#", method: "post"}
+            .main__container__input__default__birthday
+              .main__container__input__default__birthday__box
+                %select{name: "year", class: "main__container__input__default__birthday__box__select"}
+                  %option{value: "--"} --
+                  %option{value: "A"} A型
+                  %option{value: "B"} B型
+                  %option{value: "O"} O型
+                  %option{value: "AB"} AB型
+              %p 年
+              .main__container__input__default__birthday__box
+                %select{name: "month", class: "main__container__input__default__birthday__box__select"}
+                  %option{value: "--"} --
+                  %option{value: "1"} 1
+                  %option{value: "2"} 2
+                  %option{value: "3"} 3
+                  %option{value: "4"} 4
+                  %option{value: "5"} 5
+                  %option{value: "6"} 6
+                  %option{value: "7"} 7
+                  %option{value: "8"} 8
+                  %option{value: "9"} 9
+                  %option{value: "10"} 10
+                  %option{value: "11"} 11
+                  %option{value: "12"} 12
+              %p 月
+              .main__container__input__default__birthday__box
+                %select{:name => "day", :class => "main__container__input__default__birthday__box__select"}
+                  %option{value: "--"} --
+                  %option{value: "1"} 1
+                  %option{value: "2"} 2
+                  %option{value: "3"} 3
+                  %option{value: "4"} 4
+                  %option{value: "5"} 5
+                  %option{value: "6"} 6
+                  %option{value: "7"} 7
+                  %option{value: "8"} 8
+                  %option{value: "9"} 9
+                  %option{value: "10"} 10
+                  %option{value: "11"} 11
+                  %option{value: "12"} 12
+                  %option{value: "13"} 13
+                  %option{value: "14"} 14
+                  %option{value: "15"} 15
+                  %option{value: "16"} 16
+                  %option{value: "17"} 17
+                  %option{value: "18"} 18
+                  %option{value: "19"} 19
+                  %option{value: "20"} 20
+                  %option{value: "21"} 21
+                  %option{value: "22"} 22
+                  %option{value: "23"} 23
+                  %option{value: "24"} 24
+                  %option{value: "25"} 25
+                  %option{value: "26"} 26
+                  %option{value: "27"} 27
+                  %option{value: "28"} 28
+                  %option{value: "29"} 29
+                  %option{value: "30"} 30
+                  %option{value: "31"} 31
+              %p 日
+        .main__container__input__default
+          %label(for="post_name") 送付先お名前(全角)
+          %span.main__container__input__default__require 必須
+          .main__container__input__default__box
+            %input{placeholder: "例)山田", type: "text", class: "half_input"}/
+            %input{placeholder: "例)彩", type: "text", class: "half_input"}/
+        .main__container__input__default
+          %label(for="post_name__kana") 送付先お名前カナ(全角)
+          %span.main__container__input__default__require 必須
+          .main__container__input__default__box
+            %input{placeholder: "例)ヤマダ", type: "text", class: "half_input"}/
+            %input{placeholder: "例)アヤ", type: "text", class: "half_input"}/
+        .main__container__input__beiin
+          %p
+            ※ 本人情報は正しく入力してください。会員登録後、
+            %br/
+            修正するにはお時間を頂く場合があります。
+        .main__container__input__next
+          %input{type: "submit", value: "次へ進む"}/
+        .main__container__input__regis
+          %a{href: "#"} 本人情報の登録について＞
+        .main__container__input__english
+          %p
+            This site is protected by reCAPTCHA and the Google
+            %a Privacy Policy
+            and
+            %a Terms of Service
+            apply.
+%footer.footer
+  %ul.footer__lists
+    %li.footer__lists__list 
+      %a{href: "#"} プライバシーポリシー
+    %li.footer__lists__list 
+      %a{href: "#"} FURIMA利用規約
+    %li.footer__lists__list 
+      %a{href: "#"} 特定商取引に関する表記
+  .footer__logo
+    %a{href: "#"}
+      %img{alt: "フッターロゴ", src: "../../../assets/images/material/logo/logo-white.png"}/
+  .footer__text
+    %p © FURIMA, Inc.
