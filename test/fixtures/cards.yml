@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user: one
+  user_id: 1
   customer_id: MyString
   card_id: MyString
 
 two:
-  user: two
+  user_id: 1
   customer_id: MyString
   card_id: MyString
