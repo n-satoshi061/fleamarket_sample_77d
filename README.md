@@ -16,7 +16,7 @@
 |personal_name|string|null: false|
 |family_name_kana|string|null: false|
 |personal_name_kana|string|null: false|
-|tel|integer||
+|tel|string|null: false|
 |post_family_name|string|null: false|
 |post_personal_name|string|null: false|
 |post_family_name_kana|string|null: false|
@@ -32,7 +32,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|integer|null: false|
-|prefecture|string|null: false|　　
+|prefecture|string|null: false|
 |city|string|null: false|
 |block|string|null: false|
 |building|string||
@@ -45,6 +45,7 @@
 ## Cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|name|string|null: false|
 |card_id|string|null: false|
 |customer_id|t.string|null: false|
 |user|references|foreign_key: true, null: false|
@@ -60,6 +61,7 @@
 |introduction|text|null: false|
 |price|integer|null: false|
 |from_area|string|null: false|
+|delivery_person|boolean|null: false|
 |delivery_leadtime|string|null: false|
 |delivery_way|string|null: false|
 |status|integer|null: false|
