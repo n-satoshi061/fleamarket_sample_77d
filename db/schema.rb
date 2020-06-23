@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_06_23_023849) do
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.integer "user_id", null: false
     t.string "customer_id", null: false
     t.string "card_id", null: false
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_06_23_023849) do
     t.text "introduction", null: false
     t.integer "price", null: false
     t.string "from_area", null: false
+    t.boolean "delivery_person", null: false
     t.string "delivery_leadtime", null: false
     t.string "delivery_way", null: false
     t.integer "status", null: false
@@ -74,7 +76,7 @@ ActiveRecord::Schema.define(version: 2020_06_23_023849) do
     t.string "personal_name", null: false
     t.string "family_name_kana", null: false
     t.string "personal_name_kana", null: false
-    t.integer "tel"
+    t.string "tel", null: false
     t.string "post_family_name", null: false
     t.string "post_personal_name", null: false
     t.string "post_family_name_kana", null: false
