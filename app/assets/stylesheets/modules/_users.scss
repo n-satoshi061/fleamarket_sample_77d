@@ -225,4 +225,44 @@ body{
       }
     }
   }
+<<<<<<< HEAD
+=======
+}
+.footer{
+  width: 456px;
+  margin: 0 auto;
+  height: 250px;
+  padding: 40px 0;
+  text-align: center;
+  &__lists{
+    display: flex;
+    justify-content: space-between;
+    &__list{
+      font-size: 12px;
+      text-align: center;
+      a{
+        display: block;
+        color: #333;
+        text-decoration: none;
+      }
+      a:hover{
+        text-decoration: underline;
+        opacity: 0.6;
+      }
+    }
+  }
+  &__logo{
+    width: 80px;
+    height: 65px;
+    margin: 40px auto 0;
+    display: block;
+
+  }
+  &__text{
+    margin-top: 8px;
+    p{
+      font-size: 13px;
+    }
+  }
+>>>>>>> master
 }
