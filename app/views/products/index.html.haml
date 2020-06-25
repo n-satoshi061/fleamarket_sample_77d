@@ -1,15 +1,18 @@
-= render "layouts/simple-header"
+= render "layouts/simple-header" 
 
-.container#clearfix
-  .banner
-    .banner__card
-  .category
-    .category__heading 人気のカテゴリー
-    .category__group
-      .category__group__item レディース
-      .category__group__item メンズ
-      .category__group__item 家電・スマホ・カメラ
-      .category__group__item おもちゃ・ホビー・グッズ
+.main-visual 
+  .main-visual__box 
+    .main-visual__box__contents 
+      %h2.main-visual__box__contents__subtitle  人生を変えるフリマアプリ 
+      %p.main-visual__box__contents__text   
+        FURIMAはだれでもかんたんに出品・購入できる 
+        %br 
+        フリマアプリです 
+      .main-visual__box__contents__btn 
+        = link_to "#", class: "main-visual__box__contents__btn__a-link" do
+          = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg", class: "main-visual__box__contents__btn__a-link__app" 
+        = link_to "#", class: "main-visual__box__contents__btn__g-link" do
+          = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg", class: "main-visual__box__contents__btn__g-link__google" 
 
   .top-main
     .products
