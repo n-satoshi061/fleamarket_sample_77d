@@ -18,32 +18,45 @@
           .header__box__lower__left__category__hide 
             .header__box__lower__left__category__hide__tree 
               %ul.header__box__lower__left__category__hide__tree__list 
-                %li.categoryTree--item 
-                  %a#1{:href => "#"} レディース
                 %li.categoryTree--item
-                  %a#2{:href => "#"} メンズ
+                  = link_to "#", id: "1" do
+                    レディース
                 %li.categoryTree--item
-                  %a#3{:href => "#"} ベビー・キッズ
+                  = link_to "#", id: "2" do
+                    メンズ
                 %li.categoryTree--item
-                  %a#4{:href => "#"} インテリア・住まい・小物
+                  = link_to "#", id: "3" do
+                    ベビー・キッズ
                 %li.categoryTree--item
-                  %a#5{:href => "#"} 本・音楽・ゲーム
+                  = link_to "#", id: "4" do
+                    インテリア・住まい・小物
                 %li.categoryTree--item
-                  %a#6{:href => "#"} おもちゃ・ホビー・グッズ
+                  = link_to "#", id: "5" do
+                    本・音楽・ゲーム
                 %li.categoryTree--item
-                  %a#7{:href => "#"} コスメ・香水・美容
+                  = link_to "#", id: "6" do
+                    おもちゃ・ホビー・グッズ
                 %li.categoryTree--item
-                  %a#8{:href => "#"} 家電・スマホ・カメラ
+                  = link_to "#", id: "7" do
+                    コスメ・香水・美容
                 %li.categoryTree--item
-                  %a#9{:href => "#"} スポーツ・レジャー
+                  = link_to "#", id: "8" do
+                    家電・スマホ・カメラ
                 %li.categoryTree--item
-                  %a#10{:href => "#"} ハンドメイド
+                  = link_to "#", id: "9" do
+                    スポーツ・レジャー
                 %li.categoryTree--item
-                  %a#11{:href => "#"} チケット
+                  = link_to "#", id: "10" do
+                    ハンドメイド
                 %li.categoryTree--item
-                  %a#12{:href => "#"} 自動車・オートバイ
+                  = link_to "#", id: "11" do
+                    チケット
                 %li.categoryTree--item
-                  %a#13{:href => "#"} その他
+                  = link_to "#", id: "12" do
+                    自動車・オートバイ
+                %li.categoryTree--item
+                  = link_to "#", id: "13" do
+                    その他
                 -# ここまで非表示
 
         %li.header__box__lower__left__brand
