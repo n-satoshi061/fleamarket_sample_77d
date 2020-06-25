@@ -1,0 +1,313 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+}
+
+// 詳細ページ上半分
+.products-container {
+  background: #fff;
+  width: 700px;
+  padding: 24px 40px 40px;
+  margin: 40px auto 0;
+  .products-name {
+    font-size: 24px;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .product-content {
+    margin: 16px 0;
+    &__photo {
+      background: #fafafa;
+      float: left;
+      min-height: 375px;
+      max-width: 300px;
+      min-width: 300px;
+    }
+    table {
+      float: right;
+      height: 420px;
+      max-width: 300px;
+      width: 100%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      border: 1px solid #f5f5f5;
+      th {
+        width: 39%;
+        text-align: left;
+        font-weight: 400;
+        background: #fafafa;
+        padding: 8px;
+      }
+      td {
+        border-collapse: collapse;
+        border: 1px solid #f5f5f5;
+        width: 61%;
+        background: #fff;
+        padding: 0;
+        a {
+          color: #0099e8;
+          margin: 0;
+          display: block;
+        }
+        .item-user-raitings {
+          display: inline-block;
+        }
+        .item-user-raitings:first-child {
+          margin: 0;
+        }
+        .fas.fa-grin {
+          color: palevioletred;
+          font-size: 16px;
+        }
+        .fas.fa-meh {
+          color: orange;
+          font-size: 16px;
+        }
+        .fas.fa-frown {
+          color: #0099e8;
+          font-size: 16px;
+        }
+        span {
+          vertical-align: middle;
+
+        }
+      }
+    }
+  }
+  .product-price {
+    margin: 24px 0 0;
+    width: 100%;
+    &__tag {
+      margin: 0 16px 0 0;
+      font-size: 50px;
+    }
+    &__tax {
+      font-size: 10px;
+    }
+    &__fee {
+      display: inline-block;
+      font-size: 16px;
+    }
+    .bold {
+      font-weight: 600;
+    }
+  }
+  .text-center {
+    text-align: center;
+  }
+  .product-buy-btn {
+    background: #ea352d;
+    display: block;
+    font-size: 24px;
+    line-height: 60px;
+    margin-top: 16px;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+  }
+  .product-description {
+    padding: 32px 0 0;
+    line-height: 1.5;
+    font-size: 18px;
+    &__text {
+      white-space: pre-wrap;
+    }
+  }
+  .product-button {
+    margin: 16px 0 0;
+    font-size: 0;
+    width: 100%;
+    &__left {
+      float: left;
+      .btn {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 40px;
+      }
+      .liked {
+        border: 1px solid #ea352d;
+        background: none;
+        color: #ea352d;
+      }
+      .report {
+        margin: 0 0 0 16px;
+        color: #333;
+        background: #f5f5f5;
+      }
+    }
+    &__right {
+      margin: 8px 0 0;
+      float: right;
+      a {
+        color: #0099e8;
+        text-decoration: none;
+      }
+    }
+    i {
+      font-size: 14px;
+      vertical-align: middle;
+    }
+    span {
+      font-size: 14px;
+      display: inline-block;
+      margin: 1px 0 0 8px;
+      vertical-align: middle;
+    }
+  }
+}
+
+// コメント（追加実装部分
+.product-comment {
+  width: 700px;
+  margin: 8px auto;
+  display: block;
+  &__container {
+    display: block;
+    &__box {
+      padding: 24px;
+      background: #fff;
+      display: block;
+      p {
+        padding: 8px;
+        font-size: 14px;
+        background: #fff6de;
+      }
+      .comment-textarea {
+        margin: 8px 0 0;
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        min-height: 104px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+    }
+    .comment-submit {
+      width: 100%;
+      margin: 8px 0 0;
+      font-size: 0;
+      text-align: center;
+      background: #aaa;
+      border: 1px solid #aaa;
+      color: #fff;
+      display: block;
+      line-height: 40px;
+      border-radius: 4px;
+      cursor: pointer;
+      span {
+        font-size: 14px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+// 詳細ページ下半分
+.products-another {
+  width: 700px;
+  margin: 0 auto;
+  display: block;
+  &__container {
+    display: block;
+    &__head {
+      font-size: 22px;
+      margin: 14px 0 8px;
+      line-height: 1.4;
+      display: block;
+      a {
+        color: #0099e8;
+        text-decoration: none;
+      }
+    }
+    &__content {
+      width: auto;
+      margin: 0 auto;
+      .products-box {
+        background: #fff;
+        width: 220px;
+        margin: 0 20px 20px 0;
+        position: relative;
+        float: left;
+        a {
+          display: block;
+          color: #333;
+        }
+        &__photo {
+          background-color: gray;
+          height: 220px;
+          width: 220px;
+        }
+        &__body {
+          display: block;
+          height: 110px;
+          padding: 16px;
+          &__name {
+            overflow: hidden;
+            position: relative;
+            font-weight: 400;
+            height: 3em;
+            line-height: 1.5;
+            word-break: break-word;
+            white-space: normal;
+            font-size: 16px;
+            color: #333;
+          }
+          &__num {
+            display: flex;
+            justify-content: space-between;
+            -webkit-box-pack: justify;
+            align-items: center;
+            margin: 8px 0 0;
+            &__price {
+              font-size: 17px;
+              font-weight: 600;
+              color: #333;
+            }
+            &__liked-count {
+              font-size: 16px;
+              font-weight: 400;
+              color: #333;
+              .like-icon {
+                display: inline-block;
+                color: #ccc;
+              }
+            }
+          }
+        }
+      }
+      .products-box:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+
+a {
+  cursor: pointer;
+  &:hover {
+    opacity: .75;
+  }
+}
+button {
+  cursor: pointer;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+
+
