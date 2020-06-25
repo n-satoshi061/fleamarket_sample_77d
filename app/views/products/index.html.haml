@@ -16,14 +16,18 @@
       .products__heading レディース新着アイテム
       .products__more_btn もっと見る ＞
     .product
-      - @product.each do |product|
-        .product__list
-          = image_tag product.images.first.image, alt: "test", class: "product__list__image"
-          .product__list__price
-            = product.price
-            %p 円
-          .product__list__product_name
-            = product.title
+      = link_to "#", class: "product__flex" do
+        - @product.each do |product|
+          .product__flex__list
+            = image_tag product.images.first.image, alt: "test", class: "product__flex__list__image"
+            -if product.buyer_id.present? 
+              .product__flex__list__image__sold
+                .product__flex__list__image__sold__inner SOLD
+            .product__flex__list__price
+              = product.price
+              %p 円
+            .product__flex__list__product_name
+              = product.title
 = render "layouts/footer-publicity"
 = render "layouts/footer-introduction"
 = render "layouts/bottom-camera"
