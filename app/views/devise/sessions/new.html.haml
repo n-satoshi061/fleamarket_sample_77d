@@ -1,0 +1,18 @@
+= render "layouts/simple-header" 
+
+.login-container
+  .login-container__content
+    %form
+      .login-form
+        .login-form__group
+          %input{ type: 'email', name: 'email', placeholder: 'メールアドレス', class: 'login-input' }
+        .login-form__group
+          %input{ type: 'password', name: 'password', placeholder: 'パスワード', class: 'login-input' }
+        %button.login-btn
+          ログイン
+        = link_to "#"
+          パスワードをお忘れの方
+
+= render "layouts/footer-publicity" 
+= render "layouts/footer-introduction" 
+= render "layouts/bottom-camera" 
