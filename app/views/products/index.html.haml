@@ -1,0 +1,230 @@
+= render "layouts/simple-header" 
+
+.main-visual 
+  .main-visual__box 
+    .main-visual__box__contents 
+      %h2.main-visual__box__contents__subtitle  人生を変えるフリマアプリ 
+      %p.main-visual__box__contents__text   
+        FURIMAはだれでもかんたんに出品・購入できる 
+        %br 
+        フリマアプリです 
+      .main-visual__box__contents__btn 
+        = link_to "#", class: "main-visual__box__contents__btn__a-link" do
+          = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg", class: "main-visual__box__contents__btn__a-link__app" 
+        = link_to "#", class: "main-visual__box__contents__btn__g-link" do
+          = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg", class: "main-visual__box__contents__btn__g-link__google" 
+
+.top-introduction 
+  %h2.top-introduction__subtitle  FURIMAが選ばれる3つの理由 
+  %ul.top-introduction__lists 
+    %li.top-introduction__lists__list 
+      .top-introduction__lists__list__pict 
+        %span.top-introduction__lists__list__pict__number  1 
+        = image_tag 'pict/pict-reason-01.jpg', class: 'top-introduction__lists__list__pict__image' 
+      %h3.top-introduction__lists__list__text   
+        %span 3分 
+        ですぐに出品 
+      %p.top-introduction__lists__list__description  スマホで入力するだけで簡単に出品できる！ 
+
+    %li.top-introduction__lists__list 
+      .top-introduction__lists__list__pict 
+        %span.top-introduction__lists__list__pict__number  2  
+        = image_tag 'pict/pict-reason-02.jpg', class: 'top-introduction__lists__list__pict__image' 
+      %h3.top-introduction__lists__list__text   
+        %span  シンプル   
+        で使いやすい 
+      %p.top-introduction__lists__list__description  めんどくさい入力は必要なく、検索も購入もスムーズ！ 
+
+    %li.top-introduction__lists__list__last.top-introduction__lists__list 
+      .top-introduction__lists__list__pict 
+        %span.top-introduction__lists__list__pict__number  3 
+        = image_tag 'pict/pict-reason-03.jpg', class: 'top-introduction__lists__list__pict__image' 
+      %h3.top-introduction__lists__list__text  
+        手数料    
+        %span  業界最安 
+      %p.top-introduction__lists__list__description  最大3%でお得に出品&購入！ 
+ 
+.top-middledl 
+  .top-middledl__inner 
+    %h2.top-middledl__inner__subtitle 会員数日本一位 
+    %p.top-middledl__inner__text  
+      FURIMAは、フリマアプリで最も人気。 
+      %br 
+      出品・購入回数も業界最多です！ 
+      %br 
+      ほしかったあの商品に出会えるかもしれません。 
+    .top-middledl__inner__btn 
+      = link_to "#", class: "top-middledl__inner__btn__a-link" do
+        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg", class: "top-middledl__inner__btn__a-link__app" 
+      = link_to "#", class: "top-middledl__inner__btn__g-link" do
+        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg", class: "top-middledl__inner__btn__g-link__google" 
+ 
+.topkey-feater 
+  %h2.topkey-feater__head  FURIMAの特徴 
+  .topkey-feater__items 
+    .topkey-feater__items__item  
+      %figure.topkey-feater__items__item__img 
+        = image_tag "icon/icon-01.png", class: "topkey-feater__items__item__img__icon" 
+      %h3.topkey-feater__items__item__subtitle  簡単に売り買いできる 
+      %p.topkey-feater__items__item__detail  スマホひとつで、いつでもどこでも簡単に出品・購入が可能！ 
+    .topkey-feater__items__item 
+      %figure.topkey-feater__items__item__img 
+        = image_tag "icon/icon-03.png", class: "topkey-feater__items__item__img__icon" 
+      %h3.topkey-feater__items__item__subtitle  売上金は即日振込みに対応 
+      %p.topkey-feater__items__item__detail  午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします! 
+    .topkey-feater__items__item 
+      %figure.topkey-feater__items__item__img 
+        = image_tag "icon/icon-04.png", class: "topkey-feater__items__item__img__icon" 
+      %h3.topkey-feater__items__item__subtitle  様々な支払いに対応 
+      %p.topkey-feater__items__item__detail  お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。 
+ 
+.container#clearfix 
+  .category 
+    .category__heading 人気のカテゴリー 
+    .category__group  
+      .category__group__item レディース  
+      .category__group__item メンズ 
+      .category__group__item 家電・スマホ・カメラ 
+      .category__group__item おもちゃ・ホビー・グッズ 
+
+  .top-main 
+    .products 
+      .products__heading レディース新着アイテム 
+      .products__more_btn もっと見る ＞ 
+    .product 
+      .product__list 
+        = image_tag "test.jpg", alt: "test", class: "product__list__image" 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image  
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list  
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+ 
+  .top-main 
+    .products 
+      .products__heading レディース新着アイテム 
+      .products__more_btn もっと見る ＞ 
+    .product 
+      .product__list 
+        = image_tag "test.jpg", alt: "test", class: "product__list__image" 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image  
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+ 
+  .top-main 
+    .products 
+      .products__heading レディース新着アイテム 
+      .products__more_btn もっと見る ＞ 
+    .product 
+      .product__list 
+        = image_tag "test.jpg", alt: "test", class: "product__list__image" 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list  
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+      .product__list 
+        .product__list__image 
+        .product__list__price ¥1980 
+        .product__list__product_name ワンピースワンピースワンピースワンピースワンピースワンピース 
+
+= render "layouts/footer-publicity" 
+= render "layouts/footer-introduction" 
+= render "layouts/bottom-camera" 

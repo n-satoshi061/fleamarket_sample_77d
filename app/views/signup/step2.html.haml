@@ -1,0 +1,77 @@
+%body
+  %header.header
+    .header__logo
+      %a{href: "#"}
+        = image_tag "logo/logo.png"
+  .main
+    .main__container
+      .main__container__top
+        %h1.main__container__top__content 会員情報入力
+      = form_for @user_info, url: signup_index_path, method: :post, html: {class: 'box'} do |f|
+        .main__container__input
+          .main__container__input__default
+            %label(for="tel") 電話番号
+            %span.main__container__input__default__require 必須
+            .main__container__input__default__box
+              = f.text_field :tel, placeholder: '例)123456789', class: 'main__container__input__default__box__place invalid_data'
+          .main__container__input__default
+            %label(for="post_name") 送付先お名前(全角)
+            %span.main__container__input__default__require 必須
+            .main__container__input__default__box
+              = f.text_field :post_family_name, placeholder: '例)山田', class: 'half_input invalid_data valid_formal_name'
+              = f.text_field :post_personal_name, placeholder: '例)彩', class: 'half_input invalid_data valid_formal_name'
+          .main__container__input__default
+            %label(for="post_name__kana") 送付先お名前カナ(全角)
+            %span.main__container__input__default__require 必須
+            .main__container__input__default__box
+              = f.text_field :post_family_name_kana, placeholder: '例)ヤマダ', class: 'half_input invalid_data valid_name_kana'
+              = f.text_field :post_personal_name_kana, placeholder: '例)アヤ', class: 'half_input invalid_data valid_name_kana'
+          = f.fields_for @address_info do |address|
+            .main__container__input__default
+              %label(for="post_cord") 郵便番号
+              %span.main__container__input__default__require 必須
+              .main__container__input__default__box
+                = address.text_field :postal_code, placeholder: '例)1234567', class: 'main__container__input__default__box__place required'
+            .main__container__input__default
+              %label(for="prefecture") 都道府県
+              %span.main__container__input__default__require 必須
+              .main__container__input__default__box
+                = address.select :prefecture, $pref_array, prompt: "都道府県を選択してください", class: "main__container__input__default__box__prefecture pref selected", id: "#select-pref"
+            .main__container__input__default
+              %label(for="city") 市区町村
+              %span.main__container__input__default__require 必須
+              .main__container__input__default__box
+                = address.text_field :city, placeholder: '例)横浜市緑区', class: 'main__container__input__default__box__place required'
+            .main__container__input__default
+              %label(for="block") 番地
+              %span.main__container__input__default__require 必須
+              .main__container__input__default__box
+                = address.text_field :block, placeholder: '例)青山1-1-1', class: 'main__container__input__default__box__place required'
+            .main__container__input__default
+              %label(for="building") ビル名・部屋番号
+              .main__container__input__default__box
+                = address.text_field :building, placeholder: '例)柳ビル103', class: "main__container__input__default__box__place"
+            .main__container__input__next
+              = f.submit class: 'step_btn', value: "トップページへ戻る"
+            .main__container__input__regis
+              %a{href: "#"} 本人情報の登録について＞
+            .main__container__input__english
+              %p
+                This site is protected by reCAPTCHA and the Google
+                %a Privacy Policy
+                and
+                %a Terms of Service
+                apply.
+  %footer.footer
+    %ul.footer__lists
+      %li.footer__lists__list
+        %a{href: "#"} プライバシーポリシー
+      %li.footer__lists__list
+        %a{href: "#"} FURIMA利用規約
+      %li.footer__lists__list
+        %a{href: "#"} 特定商取引に関する表記
+    .footer__logo
+      %a{href: "#"}
+        = image_tag "logo/logo-white.png"
+    .footer__text
+      %p © FURIMA, Inc.
