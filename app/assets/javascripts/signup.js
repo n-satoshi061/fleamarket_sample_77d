@@ -1,8 +1,8 @@
 $(function() {
   // フォームに入力が無かった場合のエラーメッセージを表示
   $('.required').on('blur', function() {
-    var empty_error = false;
-    var value = $(this).val();
+    let empty_error = false;
+    let value = $(this).val();
 
     // 入力が無い場合、エラー
     if( value === '' ) {
@@ -24,9 +24,9 @@ $(function() {
 
   // フォーム内に入力が無かった場合とフォーム内の入力が指定のものでなかった場合のエラーメッセージを表示
   $('.invalid_data').on('blur', function() {
-    var empty_error = false;
-    var input_error = false;
-    var value = $(this).val();
+    let empty_error = false;
+    let input_error = false;
+    let value = $(this).val();
 
     // 入力が無い場合、エラー
     if( value === '' ) {
