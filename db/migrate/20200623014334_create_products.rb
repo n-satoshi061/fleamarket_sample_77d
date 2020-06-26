@@ -9,9 +9,9 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :delivery_leadtime, null: false
       t.string :delivery_way,      null: false
       t.integer :status,           null: false
-      t.references :user,          null: false, foreign_key: true
       t.references :category,      null: false, foreign_key: true
-
+      t.references :buyer,         foreign_key: {to_table: :users}
+      t.references :seller,        foreign_key: {to_table: :users}, null: false
       t.timestamps
     end
   end
