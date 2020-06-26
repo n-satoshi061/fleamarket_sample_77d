@@ -1,0 +1,155 @@
+.purchase-container {
+  background: #fff;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  &__content {
+    position: relative;
+    display: block;
+    &__box {
+      padding: 32px 16px;
+      max-width: 375px;
+      margin: 0 auto;
+      display: block;
+      h2 {
+        display: block;
+        text-align: center;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 34px;
+      }
+      .item-inner {
+        display: flex;
+        justify-content: space-between;
+        &__mask {
+          display: flex;
+          justify-content: center;
+          height: 80px;
+          width: 80px;
+          align-items: center;
+          &__image {
+            background: gray;
+            height: 80px;
+            width: 80px;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 0;
+            overflow: hidden;
+          }
+        }
+      }
+      .item-info {
+        width: 100%;
+        margin-left: 16px;
+        display: block;
+        .item-name {
+          font-size: 14px;
+          line-height: 1.4em;
+          margin-bottom: 8px;
+        }
+        .item-money {
+          text-align: right;
+          .fee {
+            font-size: 12px;
+          }
+          .price {
+            font-size: 15px;
+            font-weight: 600;
+            margin-left: 8px;
+          }
+        }
+      }
+      .payment-inner {
+        display: block;
+        &__pay {
+          display: flex;
+          font-size: 18px;
+          font-weight: 600;
+          -webkit-box-pack: justify;
+          justify-content: space-between;
+          .pay-text {
+            margin: 0;
+          }
+          .sum {
+            font-size: 24px;
+          }
+        }
+      }
+      .payment-method-inner {
+        display: block;
+        &__head {
+          display: flex;
+          -webkit-box-pack: justify;
+          justify-content: space-between;
+          .method {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+          }
+          .method-fix {
+            font-size: 14px;
+            align-items: center;
+            color: #0099e8;
+            cursor: pointer;
+            display: inline-flex;
+            line-height: 1.4em;
+            text-decoration: none;
+            word-break: normal;
+          }
+        }
+        &__main > p {
+          line-height: 1.4em;
+        }
+      }
+      .post-inner {
+        display: block;
+        &__head {
+          display: flex;
+          -webkit-box-pack: justify;
+          justify-content: space-between;
+          .post {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+          }
+          .post-fix {
+            font-size: 14px;
+            align-items: center;
+            color: #0099e8;
+            cursor: pointer;
+            display: inline-flex;
+            line-height: 1.4em;
+            text-decoration: none;
+            word-break: normal;
+          }
+        }
+        &__address > p {
+          line-height: 1.4em;
+        }
+      }
+      .buy-button {
+        -webkit-box-align: center;
+        align-items: center;
+        background: #ea352d;
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        font-size: 14px;
+        font-weight: 600;
+        height: 50px;
+        -webkit-box-pack: center;
+        justify-content: center;
+        width: 100%;
+        border-radius: 4px;
+        outline: none;
+        padding: 0;
+      }
+    }
+    &__box:not(:first-child) {
+      border-top: 1px solid #ccc;
+    }
+  }
+}
