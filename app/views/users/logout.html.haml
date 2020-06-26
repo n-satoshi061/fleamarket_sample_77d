@@ -1,0 +1,12 @@
+= render "layouts/main-header" 
+.main-container.clearfix
+  = render "users/mypage-side"
+  .main-content
+    %form.logout
+      .logout__box
+        %button.logout__box__btn
+          ログアウト
+
+= render "layouts/footer-publicity" 
+= render "layouts/footer-introduction" 
+= render "layouts/bottom-camera" 
