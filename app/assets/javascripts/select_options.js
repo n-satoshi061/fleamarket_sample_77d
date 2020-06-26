@@ -82,7 +82,7 @@ $(window).on('load', function () {
       if( $(this).parent().parent().next('div.error').length ){
         $(this).parent().parent().next('div.error').remove();
       }
-      $(this).parent().parent().after('<div class="error">未入力です</div>');
+      $(this).parent().parent().after('<div class="error">入力してください</div>');
     }else{
       $(this).parent().parent().next('div.error').remove();
     }

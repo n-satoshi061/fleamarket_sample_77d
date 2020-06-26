@@ -76,4 +76,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'haml-rails'
 gem 'erb2haml'
-gem "jquery-rails"
+gem 'jquery-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'font-awesome-sass'

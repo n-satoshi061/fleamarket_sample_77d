@@ -8,4 +8,6 @@ Rails.application.routes.draw do
       get 'step2'
     end
   end
+  resources :users, only: [:index]
+  resources :cards, only: [:new]
 end
