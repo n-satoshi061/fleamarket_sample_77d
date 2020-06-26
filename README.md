@@ -67,10 +67,13 @@
 |status|integer|null: false|
 |user|references|foreign_key: true, null: false|
 |category|references|foreign_key: true, null: false|
+|buyer|references|foreign_key: {to_table: :users}|
+|seller|references|foreign_key: {to_table: :users}, null: false|
 
 ### Association
 - has_many   :images
-- belongs_to :user
+- belongs_to :buyer, class_name: 'User', :foreign_key => 'buyer_id', optional: true
+- belongs_to :seller, class_name: 'User', :foreign_key => 'seller_id'
 - belongs_to :category
 
 
