@@ -8,6 +8,9 @@
       &:first-child {
         border: 0;
       }
+    h3 {
+      font-weight: bold;
+      font-size: 16px;
     }
   }
   a.list {
@@ -50,8 +53,11 @@
   }
 }
 
-.clearfix {
-  content: "";
-  clear: both;
-  display: block;
-}
+
+.clearfix{ 
+  &::after{ 
+    content: ""; 
+    display: block; 
+    clear: both; 
+  }  
+} 
