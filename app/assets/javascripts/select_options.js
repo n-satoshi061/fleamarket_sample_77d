@@ -1,36 +1,39 @@
-$(window).on('load', function () {
+$(function () {
 
-  // ユーザーの誕生日の閏年を動的に変化させる
-  let birth_year = [];
-  let birth_month = [];
-  let months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  // ユーザ新規登録画面が読み込まれた際に以下の処理を行う
+  if(window.document.body.id === 'set_birth_option'){
+    // ユーザーの誕生日の閏年を動的に変化させる
+    let birth_year = [];
+    let birth_month = [];
+    let months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-  // 現在の年を取得
-  let date = new Date();
-  let this_year = date.getFullYear();
-  let oldest_year = 1900;
+    // 現在の年を取得
+    let date = new Date();
+    let this_year = date.getFullYear();
+    let oldest_year = 1900;
 
-  // 誕生年月の配列を自動生成
-  for (let i = this_year; i >= oldest_year; i--) {
-    let year = { let: i, txt: String(i) };
-    birth_year.push(year);
-  }
-  for (let i = 1; i <= 12; i++) {
-    let month = { let: i, txt: String(i) };
-    birth_month.push(month);
-  }
-  // 年・月のセレクトボックスに配列内容を反映
-  for (let i = 0; i < birth_year.length; i++) {
-    $("<option>", {
-      value: birth_year[i].var,
-      text: birth_year[i].txt
-    }).appendTo('#select_birthyear');
-  }
-  for (let i = 0; i < birth_month.length; i++) {
-    $("<option>", {
-      value: birth_month[i].var,
-      text: birth_month[i].txt
-    }).appendTo('#select_birthmonth');
+    // 誕生年月の配列を自動生成
+    for (let i = this_year; i >= oldest_year; i--) {
+      let year = { let: i, txt: String(i) };
+      birth_year.push(year);
+    }
+    for (let i = 1; i <= 12; i++) {
+      let month = { let: i, txt: String(i) };
+      birth_month.push(month);
+    }
+    // 年・月のセレクトボックスに配列内容を反映
+    for (let i = 0; i < birth_year.length; i++) {
+      $("<option>", {
+        value: birth_year[i].var,
+        text: birth_year[i].txt
+      }).appendTo('#select_birthyear');
+    }
+    for (let i = 0; i < birth_month.length; i++) {
+      $("<option>", {
+        value: birth_month[i].var,
+        text: birth_month[i].txt
+      }).appendTo('#select_birthmonth');
+    }
   }
 
   // 年、もしくは月のセレクトボックスの中身に変更があった時、日の内容を変更する

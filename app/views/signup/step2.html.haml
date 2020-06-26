@@ -1,7 +1,7 @@
 %body
   %header.header
     .header__logo
-      %a{href: "#"}
+      = link_to '#' do
         = image_tag "logo/logo.png"
   .main
     .main__container
@@ -54,7 +54,8 @@
             .main__container__input__next
               = f.submit class: 'step_btn', value: "トップページへ戻る"
             .main__container__input__regis
-              %a{href: "#"} 本人情報の登録について＞
+              = link_to '#' do
+                本人情報の登録について＞
             .main__container__input__english
               %p
                 This site is protected by reCAPTCHA and the Google
@@ -62,16 +63,4 @@
                 and
                 %a Terms of Service
                 apply.
-  %footer.footer
-    %ul.footer__lists
-      %li.footer__lists__list
-        %a{href: "#"} プライバシーポリシー
-      %li.footer__lists__list
-        %a{href: "#"} FURIMA利用規約
-      %li.footer__lists__list
-        %a{href: "#"} 特定商取引に関する表記
-    .footer__logo
-      %a{href: "#"}
-        = image_tag "logo/logo-white.png"
-    .footer__text
-      %p © FURIMA, Inc.
+  = render "layouts/signup-footer"
