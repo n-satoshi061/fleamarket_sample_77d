@@ -5,6 +5,12 @@ class ProductsController < ApplicationController
     @product = Product.all
   end
 
+  def show
+  end
+
+  def buy
+  end
+
   def destroy
     item = Item.find(params[:id])
     if item.user_id == current_user.id
