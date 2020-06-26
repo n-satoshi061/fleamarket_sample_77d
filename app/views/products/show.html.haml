@@ -1,0 +1,244 @@
+= render "layouts/simple-header" 
+
+%section.products-container
+  %h1.products-name
+    aaaaaaaaaaaaaaa
+  .product-content.clearfix
+    .product-content__photo
+    %table.product-content__detail
+      %tbody
+        %tr
+          %th 出品者
+          %td 
+            = link_to "#" do
+              name
+            .item-user-raitings
+              %i.fas.fa-grin
+              %span 100
+            .item-user-raitings
+              %i.fas.fa-meh
+              %span 200
+            .item-user-raitings
+              %i.fas.fa-frown
+              %span 300
+        %tr
+          %th カテゴリー
+          %td
+            = link_to "#" do
+              %div カテゴリー1
+            = link_to "#" do
+              %div カテゴリー100
+            = link_to "#" do
+              %div カテゴリー300
+        %tr
+          %th ブランド
+          %td ブランドA
+        %tr
+          %th 商品の状態
+          %td 新品、未使用
+        %tr
+          %th 配送料の負担
+          %td 着払い(購入者負担)
+        %tr
+          %th 配送の方法
+          %td 普通郵便(定形、定形外)
+        %tr
+          %th 発送元地域
+          %td 大阪府
+        %tr
+          %th 発送日の目安
+          %td 2~3日で発送
+  .product-price.text-center
+    %span.product-price__tag.bold ¥10,000
+    %span.product-price__tax  (税込)
+    %span.product-price__fee 送料込み
+  = link_to "#", class: "product-buy-btn" do
+    購入画面に進む
+  .product-description
+    %p.product-description__text こんにちはこんにちはこんにちはこんにちはこんにちはこんにちは
+    こんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちは
+  .product-button
+    .product-button__left
+      %button.btn.liked
+        %i.fas.fa-star
+          %span いいね!
+          %span  99
+      = link_to "#", class: "btn report" do
+        %i.fas.fa-flag
+          %span 不適切な商品の報告
+    .product-button__right
+      = link_to "#" do
+        %i.fas.fa-unlock-alt
+        %span あんしん・あんぜんへの取り組み
+
+.product-comment
+  .product-comment__container
+    .product-comment__container__box
+      .product-commnet__container__box__form
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea.comment-textarea
+        %button.comment-submit
+          %span コメントする
+
+.products-another
+  %section.products-another__container.clearfix
+    %h2.products-another__container__head
+      = link_to "#" do
+        userさんのその他の出品
+    .products-another__container__content.clearfix
+      %section.products-box
+        = link_to "#" do
+          .products-box__photo
+            = image_tag "/"
+          .products-box__body
+            .products-box__body__name
+              another-item-name
+            .products-box__body__num
+              .products-box__body__num__price ¥5,000
+              .products-box__body__num__liked-count
+                %i.fas.fa-star.like-icon
+                %span 99
+      %section.products-box
+        = link_to "#" do
+          .products-box__photo
+            = image_tag "/"
+          .products-box__body
+            .products-box__body__name
+              another-item-name
+            .products-box__body__num
+              .products-box__body__num__price ¥5,000
+              .products-box__body__num__liked-count
+                %i.fas.fa-star.like-icon
+                %span 99
+      %section.products-box
+        = link_to "#" do
+          .products-box__photo
+            = image_tag "/"
+          .products-box__body
+            .products-box__body__name
+              another-item-name
+            .products-box__body__num
+              .products-box__body__num__price ¥5,000
+              .products-box__body__num__liked-count
+                %i.fas.fa-star.like-icon
+                %span 99
+      %section.products-box
+        = link_to "#" do
+          .products-box__photo
+            = image_tag "/"
+          .products-box__body
+            .products-box__body__name
+              another-item-name
+            .products-box__body__num
+              .products-box__body__num__price ¥5,000
+              .products-box__body__num__liked-count
+                %i.fas.fa-star.like-icon
+                %span 99
+      %section.products-box
+        = link_to "#" do
+          .products-box__photo
+            = image_tag "/"
+          .products-box__body
+            .products-box__body__name
+              another-item-name
+            .products-box__body__num
+              .products-box__body__num__price ¥5,000
+              .products-box__body__num__liked-count
+                %i.fas.fa-star.like-icon
+                %span 99
+      %section.products-box
+        = link_to "#" do
+          .products-box__photo
+            = image_tag "/"
+          .products-box__body
+            .products-box__body__name
+              another-item-name
+            .products-box__body__num
+              .products-box__body__num__price ¥5,000
+              .products-box__body__num__liked-count
+                %i.fas.fa-star.like-icon
+                %span 99
+
+  %section.products-another__container.clearfix
+    %h2.products-another__container__head
+      = link_to "#" do
+        カテゴリー その他の出品
+    .products-another__container__content.clearfix
+      %section.products-box
+        = link_to "#" do
+          .products-box__photo
+            = image_tag "/"
+          .products-box__body
+            .products-box__body__name
+              another-item-name
+            .products-box__body__num
+              .products-box__body__num__price ¥5,000
+              .products-box__body__num__liked-count
+                %i.fas.fa-star.like-icon
+                %span 99
+      %section.products-box
+        = link_to "#" do
+          .products-box__photo
+            = image_tag "/"
+          .products-box__body
+            .products-box__body__name
+              another-item-name
+            .products-box__body__num
+              .products-box__body__num__price ¥5,000
+              .products-box__body__num__liked-count
+                %i.fas.fa-star.like-icon
+                %span 99
+      %section.products-box
+        = link_to "#" do
+          .products-box__photo
+            = image_tag "/"
+          .products-box__body
+            .products-box__body__name
+              another-item-name
+            .products-box__body__num
+              .products-box__body__num__price ¥5,000
+              .products-box__body__num__liked-count
+                %i.fas.fa-star.like-icon
+                %span 99
+      %section.products-box
+        = link_to "#" do
+          .products-box__photo
+            = image_tag "/"
+          .products-box__body
+            .products-box__body__name
+              another-item-name
+            .products-box__body__num
+              .products-box__body__num__price ¥5,000
+              .products-box__body__num__liked-count
+                %i.fas.fa-star.like-icon
+                %span 99
+      %section.products-box
+        = link_to "#" do
+          .products-box__photo
+            = image_tag "/"
+          .products-box__body
+            .products-box__body__name
+              another-item-name
+            .products-box__body__num
+              .products-box__body__num__price ¥5,000
+              .products-box__body__num__liked-count
+                %i.fas.fa-star.like-icon
+                %span 99
+      %section.products-box
+        = link_to "#" do
+          .products-box__photo
+            = image_tag "/"
+          .products-box__body
+            .products-box__body__name
+              another-item-name
+            .products-box__body__num
+              .products-box__body__num__price ¥5,000
+              .products-box__body__num__liked-count
+                %i.fas.fa-star.like-icon
+                %span 99
+
+= render "layouts/footer-publicity" 
+= render "layouts/footer-introduction" 
+= render "layouts/bottom-camera" 
+
+
