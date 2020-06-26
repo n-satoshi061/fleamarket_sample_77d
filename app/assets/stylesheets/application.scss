@@ -4,16 +4,15 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "reset"; 
-@import "./modules/header"; 
-@import "./modules/footer"; 
+@import "header"; 
+@import "footer"; 
 @import "./modules/main-visual"; 
 @import "./modules/products"; 
-@import "./modules/buy";
-@import "./modules/product-show";
-@import "./modules/logout";
-@import "./modules/card";
 
-@import "./modules/login";
-
-
-// @import "modules/users"; 
+@import "mypage-side";
+@import "mypage-main";
+// @import "./modules/logout";
+// @import "./modules/card";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+// @import "./modules/login";
