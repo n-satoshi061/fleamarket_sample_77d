@@ -1,0 +1,68 @@
+.main-content
+  %section.mypage-user
+    = link_to "#" do
+      .avatar
+      %h2 user-name
+      .mypage-user__number
+        %div 
+          評価 
+          %span.maypage-user__number__bold
+            1
+        %div 
+          出品数
+          %span.maypage-user__number__bold
+            1
+  %section.tab-container
+    %ul.tabs
+      %li.active
+        %h3
+          = link_to "#" do
+            お知らせ
+      %li
+        %h3
+          = link_to "#" do
+            やることリスト
+    .tab-contents
+      %ul#mypage-tab.tab-pane.active
+        %li
+          = link_to "#", class: "mypage-item-list" do
+            .image-icon
+            .mypage-item-info
+              .mypage-item-info__text
+                事務局から個別メッセージ！
+              .mypage-item-info__time
+                2020-06-18
+            %i.fa.fa-chevron-right.arrow-right
+      %ul#mypage-tab.tab-pane
+        %li
+          = link_to "#", class: "mypage-item-list" do
+            .image-icon
+            .mypage-item-info
+              .mypage-item-info__text
+                事務局から個別メッセージ！
+              .mypage-item-info__time
+                2020-06-18
+            %i.fa.fa-chevron-right.arrow-right
+        %li.mypage-chart
+          = link_to "#" do
+            一覧を見る
+      -# %ul#mypage-tab.mypage-todo
+
+  %section.transaction-container
+    %h2.transaction-container__head
+      購入した商品
+    %ul.tabs
+      %li.active
+        %h3
+          = link_to "#" do
+            取引中
+      %li
+        %h3
+          = link_to "#" do
+            過去の取引
+    .tab-contents
+      %ul#transaction-now.tab-pane.active
+        %li.not-found
+          取引中の商品はありません
+      %ul#transaction-old.tab-pane
+        %li
