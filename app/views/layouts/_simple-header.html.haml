@@ -63,9 +63,14 @@
           = link_to "#", class: "catbtn__brand" do
             ブランド 
       %ul.header__box__lower__right
-        %li.header__box__lower__right__signup 
-          = link_to "#", class: "submit-btn header-registration-btn" do
-            ログイン 
-        %li.header__box__lower__right__signin
-          = link_to "#", class: "submit-btn header-registration-btn" do
-            新規会員登録 
+        - if user_signed_in?
+          %li.header__box__lower__right__signup 
+            = link_to "#", class: "submit-btn header-registration-btn" do
+              マイページ 
+        - else
+          %li.header__box__lower__right__signup 
+            = link_to new_user_session_path, class: 'submit-btn header-registration-btn' do
+              ログイン
+          %li.header__box__lower__right__signin
+            = link_to step1_signup_index_path, class: "submit-btn header-registration-btn" do
+              新規会員登録 

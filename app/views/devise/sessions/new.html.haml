@@ -2,15 +2,14 @@
 
 .login-container
   .login-container__content
-    %form
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .login-form
         .login-form__group
-          %input{ type: 'email', name: 'email', placeholder: 'メールアドレス', class: 'login-input' }
+        = f.email_field :email, autofocus: true, placeholder: 'メールアドレス', class: 'login-input'
         .login-form__group
-          %input{ type: 'password', name: 'password', placeholder: 'パスワード', class: 'login-input' }
-        %button.login-btn
-          ログイン
-        = link_to "#"
+        = f.password_field :password, autocomplete: "off", placeholder: 'パスワード', class: 'login-input'
+        = f.submit "ログイン", class: 'login-btn'
+        = link_to "#" do
           パスワードをお忘れの方
 
 = render "layouts/footer-publicity" 
