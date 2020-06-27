@@ -1,16 +1,16 @@
 $(function () {
+  // ユーザーの誕生日の閏年を動的に変化させる
+  let birth_year = [];
+  let birth_month = [];
+  let months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  // 現在の年を取得
+  let date = new Date();
+  let this_year = date.getFullYear();
+  let oldest_year = 1900;
 
   // ユーザ新規登録画面が読み込まれた際に以下の処理を行う
   if(window.document.body.id === 'set_birth_option'){
-    // ユーザーの誕生日の閏年を動的に変化させる
-    let birth_year = [];
-    let birth_month = [];
-    let months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-    // 現在の年を取得
-    let date = new Date();
-    let this_year = date.getFullYear();
-    let oldest_year = 1900;
 
     // 誕生年月の配列を自動生成
     for (let i = this_year; i >= oldest_year; i--) {
