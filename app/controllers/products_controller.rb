@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :move_to_index, except: :index
+
   def index
     @product = Product.all
   end
@@ -15,5 +17,10 @@ class ProductsController < ApplicationController
       product.destroy
       redirect_to("/")
     end
+  end
+
+  private
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
   end
 end
