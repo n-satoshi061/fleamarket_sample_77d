@@ -1,6 +1,6 @@
 # README
 
-![](https://i.gyazo.com/5da05bb14178e5076ea2863de6c956eb.png)
+![](https://gyazo.com/a358b4002c6abd0725abf22395b41f1d)
 
 ## Usersテーブル
 |Column|Type|Options|
