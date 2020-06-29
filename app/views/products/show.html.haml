@@ -2,16 +2,20 @@
 
 %section.products-container
   %h1.products-name
-    aaaaaaaaaaaaaaa
+    = @product.title
   .product-content.clearfix
     .product-content__photo
+      = image_tag @product.images.first.image, alt: "test", class: "product-content__photo"
+      -if @product.buyer_id.present? 
+        .product__flex__list__image__sold
+          .product__flex__list__image__sold__inner SOLD
     %table.product-content__detail
       %tbody
         %tr
           %th 出品者
           %td 
             = link_to "#" do
-              name
+              = @product.seller.nickname
             .item-user-raitings
               %i.fas.fa-grin
               %span 100
@@ -35,28 +39,47 @@
           %td ブランドA
         %tr
           %th 商品の状態
-          %td 新品、未使用
+          %td
+            = @product.status
         %tr
           %th 配送料の負担
-          %td 着払い(購入者負担)
+          %td
+            = @product.delivery_person
         %tr
           %th 配送の方法
-          %td 普通郵便(定形、定形外)
+          %td
+            = @product.delivery_way
         %tr
           %th 発送元地域
-          %td 大阪府
+          %td
+            = @product.from_area
         %tr
           %th 発送日の目安
-          %td 2~3日で発送
+          %td
+            = @product.delivery_leadtime
   .product-price.text-center
-    %span.product-price__tag.bold ¥10,000
+    %span.product-price__tag.bold
+      ¥ #{@product.price}
     %span.product-price__tax  (税込)
-    %span.product-price__fee 送料込み
-  = link_to "#", class: "product-buy-btn" do
-    購入画面に進む
+    %span.product-price__fee
+      = @product.delivery_person
+  - if user_signed_in? && current_user.id == @product.seller.id
+    = link_to "#", class: "product-buy-btn" do
+      編集する
+    = link_to "#", class: "product-buy-btn" do
+      削除する
+  - elsif user_signed_in? && current_user.id != @product.seller.id
+    = link_to "#", class: "product-buy-btn" do
+      購入画面に進む
+  - elsif @product.buyer_id.present?
+    = link_to "#", class: "disabeled-btn"
+    売り切れました
+  - else
+    = link_to new_user_registration_path, class: "product-buy-btn" do
+      購入画面に進む
   .product-description
-    %p.product-description__text こんにちはこんにちはこんにちはこんにちはこんにちはこんにちは
-    こんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちは
+    %p.product-description__text
+      = @product.introduction
   .product-button
     .product-button__left
       %button.btn.liked
@@ -80,162 +103,10 @@
         %button.comment-submit
           %span コメントする
 
-.products-another
-  %section.products-another__container.clearfix
-    %h2.products-another__container__head
-      = link_to "#" do
-        userさんのその他の出品
-    .products-another__container__content.clearfix
-      %section.products-box
-        = link_to "#" do
-          .products-box__photo
-            = image_tag "/"
-          .products-box__body
-            .products-box__body__name
-              another-item-name
-            .products-box__body__num
-              .products-box__body__num__price ¥5,000
-              .products-box__body__num__liked-count
-                %i.fas.fa-star.like-icon
-                %span 99
-      %section.products-box
-        = link_to "#" do
-          .products-box__photo
-            = image_tag "/"
-          .products-box__body
-            .products-box__body__name
-              another-item-name
-            .products-box__body__num
-              .products-box__body__num__price ¥5,000
-              .products-box__body__num__liked-count
-                %i.fas.fa-star.like-icon
-                %span 99
-      %section.products-box
-        = link_to "#" do
-          .products-box__photo
-            = image_tag "/"
-          .products-box__body
-            .products-box__body__name
-              another-item-name
-            .products-box__body__num
-              .products-box__body__num__price ¥5,000
-              .products-box__body__num__liked-count
-                %i.fas.fa-star.like-icon
-                %span 99
-      %section.products-box
-        = link_to "#" do
-          .products-box__photo
-            = image_tag "/"
-          .products-box__body
-            .products-box__body__name
-              another-item-name
-            .products-box__body__num
-              .products-box__body__num__price ¥5,000
-              .products-box__body__num__liked-count
-                %i.fas.fa-star.like-icon
-                %span 99
-      %section.products-box
-        = link_to "#" do
-          .products-box__photo
-            = image_tag "/"
-          .products-box__body
-            .products-box__body__name
-              another-item-name
-            .products-box__body__num
-              .products-box__body__num__price ¥5,000
-              .products-box__body__num__liked-count
-                %i.fas.fa-star.like-icon
-                %span 99
-      %section.products-box
-        = link_to "#" do
-          .products-box__photo
-            = image_tag "/"
-          .products-box__body
-            .products-box__body__name
-              another-item-name
-            .products-box__body__num
-              .products-box__body__num__price ¥5,000
-              .products-box__body__num__liked-count
-                %i.fas.fa-star.like-icon
-                %span 99
+= render "layouts/footer-publicity" 
+= render "layouts/footer-introduction" 
+= render "layouts/bottom-camera" 
 
-  %section.products-another__container.clearfix
-    %h2.products-another__container__head
-      = link_to "#" do
-        カテゴリー その他の出品
-    .products-another__container__content.clearfix
-      %section.products-box
-        = link_to "#" do
-          .products-box__photo
-            = image_tag "/"
-          .products-box__body
-            .products-box__body__name
-              another-item-name
-            .products-box__body__num
-              .products-box__body__num__price ¥5,000
-              .products-box__body__num__liked-count
-                %i.fas.fa-star.like-icon
-                %span 99
-      %section.products-box
-        = link_to "#" do
-          .products-box__photo
-            = image_tag "/"
-          .products-box__body
-            .products-box__body__name
-              another-item-name
-            .products-box__body__num
-              .products-box__body__num__price ¥5,000
-              .products-box__body__num__liked-count
-                %i.fas.fa-star.like-icon
-                %span 99
-      %section.products-box
-        = link_to "#" do
-          .products-box__photo
-            = image_tag "/"
-          .products-box__body
-            .products-box__body__name
-              another-item-name
-            .products-box__body__num
-              .products-box__body__num__price ¥5,000
-              .products-box__body__num__liked-count
-                %i.fas.fa-star.like-icon
-                %span 99
-      %section.products-box
-        = link_to "#" do
-          .products-box__photo
-            = image_tag "/"
-          .products-box__body
-            .products-box__body__name
-              another-item-name
-            .products-box__body__num
-              .products-box__body__num__price ¥5,000
-              .products-box__body__num__liked-count
-                %i.fas.fa-star.like-icon
-                %span 99
-      %section.products-box
-        = link_to "#" do
-          .products-box__photo
-            = image_tag "/"
-          .products-box__body
-            .products-box__body__name
-              another-item-name
-            .products-box__body__num
-              .products-box__body__num__price ¥5,000
-              .products-box__body__num__liked-count
-                %i.fas.fa-star.like-icon
-                %span 99
-      %section.products-box
-        = link_to "#" do
-          .products-box__photo
-            = image_tag "/"
-          .products-box__body
-            .products-box__body__name
-              another-item-name
-            .products-box__body__num
-              .products-box__body__num__price ¥5,000
-              .products-box__body__num__liked-count
-                %i.fas.fa-star.like-icon
-                %span 99
 
 = render "layouts/footer-publicity" 
 = render "layouts/footer-introduction" 

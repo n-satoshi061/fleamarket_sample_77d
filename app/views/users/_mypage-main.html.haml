@@ -2,7 +2,8 @@
   %section.mypage-user
     = link_to "#" do
       .avatar
-      %h2 user-name
+      %h2
+        = current_user.nickname
       .mypage-user__number
         %div 
           評価 
