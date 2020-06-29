@@ -5,6 +5,10 @@
     = @product.title
   .product-content.clearfix
     .product-content__photo
+      = image_tag @product.images.first.image, alt: "test", class: "product-content__photo"
+      -if @product.buyer_id.present? 
+        .product__flex__list__image__sold
+          .product__flex__list__image__sold__inner SOLD
     %table.product-content__detail
       %tbody
         %tr
@@ -59,19 +63,19 @@
     %span.product-price__tax  (税込)
     %span.product-price__fee
       = @product.delivery_person
-  - if user_signed_in? && current_user.id == @product.id
-    = link_to "#", class: "product-edit-btn" do
+  - if user_signed_in? && current_user.id == @product.seller.id
+    = link_to "#", class: "product-buy-btn" do
       編集する
-    = link_to "#", class: "product-destroy-btn" do
+    = link_to "#", class: "product-buy-btn" do
       削除する
+  - elsif user_signed_in? && current_user.id != @product.seller.id
+    = link_to "#", class: "product-buy-btn" do
+      購入画面に進む
   - elsif @product.buyer_id.present?
     = link_to "#", class: "disabeled-btn"
     売り切れました
-  - unless user_signed_in?
-    = link_to new_user_registration_path, class: "product-buy-btn" do
-      購入画面に進む
   - else
-    = link_to "#", class: "product-buy-btn" do
+    = link_to new_user_registration_path, class: "product-buy-btn" do
       購入画面に進む
   .product-description
     %p.product-description__text
@@ -98,45 +102,6 @@
         %textarea.comment-textarea
         %button.comment-submit
           %span コメントする
-
-.products-another
-  %section.products-another__container.clearfix
-    %h2.products-another__container__head
-      = link_to "#" do
-        = @product.seller.nickname
-        さんのその他の出品
-    .products-another__container__content.clearfix
-      %section.products-box
-        = link_to "#" do
-          .products-box__photo
-            = image_tag "/"
-          .products-box__body
-            .products-box__body__name
-              another-item-name
-            .products-box__body__num
-              .products-box__body__num__price ¥5,000
-              .products-box__body__num__liked-count
-                %i.fas.fa-star.like-icon
-                %span 99
-
-  %section.products-another__container.clearfix
-    %h2.products-another__container__head
-      = link_to "#" do
-        カテゴリー その他の出品
-    .products-another__container__content.clearfix
-      %section.products-box
-        = link_to "#" do
-          .products-box__photo
-            = image_tag "/"
-          .products-box__body
-            .products-box__body__name
-              another-item-name
-            .products-box__body__num
-              .products-box__body__num__price ¥5,000
-              .products-box__body__num__liked-count
-                %i.fas.fa-star.like-icon
-                %span 99
-      
 
 = render "layouts/footer-publicity" 
 = render "layouts/footer-introduction" 
