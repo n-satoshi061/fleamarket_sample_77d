@@ -1,5 +1,4 @@
 # README
-　　https://gyazo.com/a358b4002c6abd0725abf22395b41f1d
 ![](https://gyazo.com/a358b4002c6abd0725abf22395b41f1d)
 
 ## Usersテーブル
