@@ -63,20 +63,20 @@
             ブランド 
       %ul.header__box__lower__right 
         - if user_signed_in? 
-          %li.box__lower__right__notice 
-            = link_to class: "" do
+          %li.header__box__lower__right__notice 
+            = link_to "#", class: "" do
               お知らせ 
-          %li.box__lower__right__todo 
-            = link_to class: "" do
+          %li.header__box__lower__right__todo 
+            = link_to "#", class: "" do
               やることリスト 
-          %li.box__lower__right__mypage 
-            = link_to "#",class: "" do
+          %li.header__box__lower__right__mypage 
+            = link_to users_path,class: "" do
               = image_tag "icon/member_photo_noimage_thumb.png", size: "134x36" 
               マイページ 
         - else 
           %li.header__box__lower__right__signup  
-            = link_to "#", class: "submit-btn header-registration-btn" do
+            = link_to new_user_session_path, class: "submit-btn header-registration-btn" do
               ログイン 
           %li.header__box__lower__right__signin 
-            = link_to "#", class: "submit-btn header-registration-btn" do
+            = link_to step1_signup_index_path, class: "submit-btn header-registration-btn" do
               新規会員登録 

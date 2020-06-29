@@ -8,6 +8,10 @@ Rails.application.routes.draw do
       get 'step2'
     end
   end
-  resources :users, only: [:index]
+  resources :users, only: [:index] do
+    collection do
+      get 'logout_page'
+    end
+  end
   resources :cards, only: [:new]
 end
