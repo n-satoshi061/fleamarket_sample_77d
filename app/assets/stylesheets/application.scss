@@ -4,8 +4,10 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "reset"; 
-@import "header"; 
-@import "footer"; 
+@import "./modules/header"; 
+@import "./modules/footer"; 
+// @import "header"; 
+// @import "footer"; 
 @import "./modules/main-visual"; 
 @import "./modules/products"; 
 

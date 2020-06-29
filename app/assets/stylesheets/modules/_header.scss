@@ -91,7 +91,6 @@
               position: absolute;
               background-color: #fff;
               width: 240px;
-              top: 40px;
               &__list{
                 background-color: #fff;
                 display: flex;
@@ -151,6 +150,25 @@
           line-height: 38px;
           padding: 0 0 0 16px;
         }
+      }
+    }
+  }
+}
+
+
+.single-header{
+  text-align: center;
+  height: 128px;
+  &__logo{
+    display: inline-block;
+    margin: 40px 0 0;
+    &__link{
+      display: inline-block;
+      margin: 0 8px 0 0;
+      line-height: 48px;
+      &__images{
+        width: 180px;
+        height: 48px;
       }
     }
   }
