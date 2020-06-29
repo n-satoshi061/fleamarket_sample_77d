@@ -1,8 +1,5 @@
 %body#set_birth_option
-  %header.header
-    .header__logo
-      = link_to '#' do
-        = image_tag "logo/logo.png"
+  = render "layouts/single-header"
   .main
     .main__container
       .main__container__top
@@ -86,4 +83,5 @@
               and
               %a Terms of Service
               apply.
-  = render "layouts/signup-footer"
+              
+  = render "layouts/single-footer"
