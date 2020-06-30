@@ -8,12 +8,7 @@
       &:first-child {
         border: 0;
       }
-      h3 {
-        font-weight: bold;
-        font-size: 16px;
-      }
     }
-  
     a.list {
       position: relative;
       background: #fff;
@@ -48,9 +43,13 @@
         color: #333;
       }
     }
-    &__setting {
+    .setting {
       margin: 40px 0 0;
       font-size: 16px;
+      font-weight: bold;
+    }
+    .mypage-nav__lists {
+      margin-top: 8px;
     }
   }
 }
