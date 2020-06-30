@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-  $('#owl-item').slick({
+  $('.owl-stage').slick({
     arrows: false,
   });
 });

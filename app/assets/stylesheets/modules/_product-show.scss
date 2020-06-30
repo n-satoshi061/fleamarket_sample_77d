@@ -24,10 +24,10 @@ body {
     margin: 16px 0;
     &__photo {
       background: #fafafa;
+      float: left;
       min-height: 375px;
       max-width: 300px;
       min-width: 300px;
-      display: inline-block;
       .owl-carousel {
         line-height: 0;
         position: relative;
@@ -36,7 +36,7 @@ body {
         .owl-stage {
           display: flex;
           overflow: hidden;
-          .sold-out-image {
+          .sold {
             height: 0;
             width: 0;
             border: 60px solid;
@@ -44,7 +44,7 @@ body {
             border-color: #ea352d transparent transparent #ea352d;
             z-index: 1;
             position: absolute;
-            .sold-out-text {
+            &__text {
               transform: rotate(-45deg);
               font-size: 28px;
               margin: -5px 0px 0px -55px;
@@ -52,10 +52,10 @@ body {
               letter-spacing: 2px;
               font-weight: 600;
             }
-            .main-item-image {
-              height: 300px !important;
-              width: 300px;
-            }
+          }
+          .main-item-image {
+            height: 300px;
+            width: 300px;
           }
         }
       }
@@ -68,17 +68,14 @@ body {
           height: 60px;
           width: 60px !important;
           outline: none;
+          .mini-item-image {
+            height: 60px;
+            width: 60px;
+            cursor: pointer;
+            flex-wrap: wrap;
+          }
         }
       }
-    }
-    .mini-item-image {
-      height: 60px;
-      width: 60px;
-      cursor: pointer;
-      flex-wrap: wrap;
-    }
-    #owl-item {
-      height: 300px;
     }
     table {
       float: right;
