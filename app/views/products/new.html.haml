@@ -1,0 +1,198 @@
+= render "layouts/single-header"
+.contents
+  .contents__form
+  = form_for @product do |f|
+    .contents__form__display
+      .contents__form__display__body
+        .contents__form__display__body__title
+          出品画像
+          %span.essential
+            必須
+        .contents__form__display__body__text
+          最大5枚までアップロードできます
+        .contents__form__display__body__image
+          .contents__form__display__body__image__box
+            .contents__form__display__body__image__box__previews
+              - if @product.persisted?
+                - @product.images.each_with_index do |image, i|
+                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+              = f.fields_for :images do |image|
+                .js-file_group{"data-index" => "#{image.index}"}
+                  =image.file_field :src, class: 'js-file'
+                  %label{for: "js-file_group"}
+                    %i.fas.fa-camera
+                  %br/
+                  %span.js-remove 
+                  - if @product.persisted?
+                    = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                  - if @product.persisted?
+                    .js-file_group{"data-index" => "#{@product.images.count}"}
+                      = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
+                      .js-remove 削除
+    .contents__form__product
+      .contents__form__product__name
+        .contents__form__product__name__title
+          商品名
+          %span.essential
+            必須
+        .contents__form__product__name__text
+        = f.text_area :title, class:"contents__form__product__name__text__box",placeholder:" 40文字まで",maxlength:"40"
+      .contents__form__product__introduction
+        .contents__form__product__introduction__title
+          商品の説明
+          %span.essential
+            必須
+        .contents__form__product__introduction__text
+          = f.text_area :introduction, class:"contents__form__product__introduction__text__box",placeholder:"商品の説明（必須1,000文字以内)&#13;&#10;(色、素材、重さ、定価、注意点など）&#13;&#10;&#13;&#10;例)2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。".html_safe,maxlength:"1000",cols:"35",rows:"28",wrap:"hard"
+    .contents__form__detail
+      %p
+        商品詳細
+        .contents__form__detail__category
+          .contents__form__detail__category__title
+            カテゴリー
+            %span.essential
+              必須
+          .contents__form__detail__category__text
+            %select{name:"name",required:"",class:"contents__form__detail__category__text__box"}
+              %option{value:""}選択してください
+              %option{value:"レディース"}レディース
+              %option{value:"メンズ"}メンズ
+              %option{value:"ベビー・キッズ"}ベビー・キッズ
+              %optgroup{label:"詳細"}詳細
+              %option{value:"インテリア"}インテリア
+              %option{value:"本"}本
+              %option{value:"おもちゃ"}おもちゃ
+              %option{value:"コスメ"}コスメ
+        .contents__form__detail__brand
+          .contents__form__detail__brand__title
+            ブランド
+            %span.option
+              任意
+          .contents__form__detail__brand__text
+            = f.text_area :status,class:"contents__form__detail__brand__text__box",placeholder:" 例）シャネル",maxlength:"40"
+        .contents__form__detail__status
+          .contents__form__detail__status__title
+            商品の状態
+            %span.essential
+              必須
+          .contents__form__detail__status__text
+            %select{name:"category",required:"",class:"contents__form__detail__status__text__box"}
+              %option{value:""}選択してください
+              %option{value:"新品・未使用"}新品・未使用
+              %option{value:"未使用に近い"}未使用に近い
+              %option{value:"目立った傷や汚れなし"}目立った傷や汚れなし
+              %option{value:"やや傷や汚れあり"}やや傷や汚れあり
+              %option{value:"傷や汚れあり"}傷や汚れあり
+              %option{value:"全体的に状態が悪い"}全体的に状態が悪い
+    .contents__form__delivery
+      %p
+        配送について
+        .contents__form__delivery__price
+          .contents__form__delivery__price__title
+            配送料の負担
+            %span.essential
+              必須
+          .contents__form__delivery__price__text
+            %select{name:"category",required:"",class:"contents__form__delivery__price__text__box"}
+              %option{value:""}選択してください
+              %option{value:"送料込み（出品者負担)"}送料込み(出品者負担)
+              %option{value:"着払い(購入者負担)"}着払い(購入者負担)
+        .contents__form__delivery__person
+          .contents__form__delivery__person__title
+            配送の方法
+            %span.essential
+              必須
+          .contents__form__delivery__person__text
+            %select{name:"category",required:"",class:"contents__form__delivery__person__text__box"}
+              %option{value:""}選択してください
+              %option{value:"未定"}未定
+              %option{value:"クロネコヤマト"}クロネコヤマト 
+              %option{value:"ゆうパック"}ゆうパック
+              %option{value:"ゆうメール"}ゆうメール     
+        .contents__form__delivery__area
+          .contents__form__delivery__area__title
+            発送元の地域
+            %span.essential
+              必須
+          .contents__form__delivery__area__text
+            %select{name:"category",required:"",class:"contents__form__delivery__area__text__box"}
+              %option{value:""}選択してください
+              %optgroup{label:"北海道・東北エリア"}北海道・東北エリア
+              %option{value:"北海道"}北海道
+              %option{value:"青森県"}青森県
+              %option{value:"岩手県"}岩手県
+              %option{value:"宮城県"}宮城県
+              %option{value:"秋田県"}秋田県
+              %option{value:"山形県"}山形県
+              %option{value:"福島県"}福島県
+              %optgroup{label:"関東エリア"}関東エリア
+              %option{value:"茨城県"}茨城県
+              %option{value:"栃木県"}栃木県
+              %option{value:"群馬県"}群馬県
+              %option{value:"埼玉県"}埼玉県
+              %option{value:"千葉県"}千葉県
+              %option{value:"東京都"}東京都
+              %option{value:"神奈川県"}神奈川県
+              %optgroup{label:"中部エリア"}中部エリア
+              %option{value:"新潟県"}新潟県
+              %option{value:"富山県"}富山県
+              %option{value:"石川県"}石川県
+              %option{value:"福井県"}福井県
+              %option{value:"山梨県"}山梨県
+              %option{value:"長野県"}長野県
+              %option{value:"岐阜県"}岐阜県
+              %option{value:"静岡県"}静岡県
+              %option{value:"愛知県"}愛知県
+              %optgroup{label:"近畿エリア"}近畿エリア
+              %option{value:"三重県"}三重県
+              %option{value:"滋賀県"}滋賀県
+              %option{value:"京都府"}京都府
+              %option{value:"大阪府"}大阪府
+              %option{value:"兵庫県"}兵庫県
+              %option{value:"奈良県"}奈良県
+              %option{value:"和歌山県"}和歌山県
+              %optgroup{label:"中国エリア"}中国エリア
+              %option{value:"鳥取県"}鳥取県
+              %option{value:"島根県"}島根県
+              %option{value:"岡山県"}岡山県
+              %option{value:"広島県"}広島県
+              %option{value:"山口県"}山口県
+              %optgroup{label:"四国エリア"}四国エリア
+              %option{value:"徳島県"}徳島県
+              %option{value:"香川県"}香川県
+              %option{value:"愛媛県"}愛媛県
+              %option{value:"高知県"}高知県
+              %optgroup{label:"九州・沖縄エリア"}九州・沖縄エリア
+              %option{value:"福岡県"}福岡県
+              %option{value:"佐賀県"}佐賀県
+              %option{value:"長崎県"}長崎県
+              %option{value:"熊本県"}熊本県
+              %option{value:"大分県"}大分県
+              %option{value:"宮崎県"}宮崎県
+              %option{value:"鹿児島県"}鹿児島県
+              %option{value:"沖縄県"}沖縄県
+        .contents__form__delivery__time
+          .contents__form__delivery__time__title
+            配送までの日数
+            %span.essential
+              必須
+          .contents__form__delivery__time__text
+            %select{name:"deliverytime",required:"",class:"contents__form__delivery__time__text__box"}
+              %option{value:""}選択してください
+              %option{value:"1~2日で発送"}1~2日で発送
+              %option{value:"2~3日で発送"}2~3日で発送
+              %option{value:"4~7日で発送"}4~7日で発送
+    .contents__form__sale
+      %p
+        価格 (¥300~9,999,999)
+        .contents__form__sale__price
+          .contents__form__sale__price__title
+            販売価格
+            %span.essential
+              必須
+            %span.price
+          = f.number_field :price, class:"contents__form__sale__price__box",placeholder:"0",maxlength:"20"
+    .contents__form__motion
+      = f.submit :name, class:"contents__form__motion__auctionbtn",value:"出品する"
+      = f.submit :name, class:"contents__form__motion__returnbtn",value:"戻る"
+= render "layouts/single-footer"
