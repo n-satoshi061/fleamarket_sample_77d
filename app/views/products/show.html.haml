@@ -5,10 +5,15 @@
     = @product.title
   .product-content.clearfix
     .product-content__photo
-      = image_tag @product.images.first.image, alt: "test", class: "product-content__photo"
-      -if @product.buyer_id.present? 
-        .product__flex__list__image__sold
-          .product__flex__list__image__sold__inner SOLD
+      .owl-carousel
+        %ul.owl-stage
+          - @product.images.each.with_index(1) do |image, index|
+            %li.owl-item
+            = image_tag image.image, class: "main-item-image"
+      %ul.owl-dots
+        - @product.images.each.with_index(1) do |image, index|
+          %li.owl-dot
+            = image_tag image.image, class: "mini-item-image"
     %table.product-content__detail
       %tbody
         %tr

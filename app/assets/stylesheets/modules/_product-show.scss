@@ -28,6 +28,37 @@ body {
       min-height: 375px;
       max-width: 300px;
       min-width: 300px;
+      .owl-carousel {
+        line-height: 0;
+        position: relative;
+        min-height: 0;
+        min-width: 0;
+        .owl-stage {
+          display: flex;
+          overflow: hidden;
+          .main-item-image {
+            height: 300px;
+            width: 300px;
+          }
+        }
+      }
+      .owl-dots {
+        line-height: 0;
+        width: 300px;
+        display: flex;
+        .owl-dot {
+          list-style: none;
+          height: 60px;
+          width: 60px !important;
+          outline: none;
+          .mini-item-image {
+            height: 60px;
+            width: 60px;
+            cursor: pointer;
+            flex-wrap: wrap;
+          }
+        }
+      }
     }
     table {
       float: right;
