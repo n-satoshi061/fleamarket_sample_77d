@@ -2,7 +2,8 @@ class ProductsController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
-    @products = Product.includes(:images).order('created_at DESC')
+    #@products = Product.includes(:images).order('created_at DESC')
+    @product = Product.all
   end
 
   def new

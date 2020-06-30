@@ -36,14 +36,14 @@
           %span.essential
             必須
         .contents__form__product__name__text
-        = f.text_area :name, class:"contents__form__product__name__text__box",placeholder:" 40文字まで",maxlength:"40"
+        = f.text_area :title, class:"contents__form__product__name__text__box",placeholder:" 40文字まで",maxlength:"40"
       .contents__form__product__introduction
         .contents__form__product__introduction__title
           商品の説明
           %span.essential
             必須
         .contents__form__product__introduction__text
-          = f.text_area :name, class:"contents__form__product__introduction__text__box",placeholder:"商品の説明（必須1,000文字以内)&#13;&#10;(色、素材、重さ、定価、注意点など）&#13;&#10;&#13;&#10;例)2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。".html_safe,maxlength:"1000",cols:"35",rows:"28",wrap:"hard"
+          = f.text_area :introduction, class:"contents__form__product__introduction__text__box",placeholder:"商品の説明（必須1,000文字以内)&#13;&#10;(色、素材、重さ、定価、注意点など）&#13;&#10;&#13;&#10;例)2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。".html_safe,maxlength:"1000",cols:"35",rows:"28",wrap:"hard"
     .contents__form__detail
       %p
         商品詳細
@@ -69,7 +69,7 @@
             %span.option
               任意
           .contents__form__detail__brand__text
-            = f.text_area :name,class:"contents__form__detail__brand__text__box",placeholder:" 例）シャネル",maxlength:"40"
+            = f.text_area :status,class:"contents__form__detail__brand__text__box",placeholder:" 例）シャネル",maxlength:"40"
         .contents__form__detail__status
           .contents__form__detail__status__title
             商品の状態
@@ -191,7 +191,7 @@
             %span.essential
               必須
             %span.price
-          = f.number_field :name, class:"contents__form__sale__price__box",placeholder:"0",maxlength:"20"
+          = f.number_field :price, class:"contents__form__sale__price__box",placeholder:"0",maxlength:"20"
     .contents__form__motion
       = f.submit :name, class:"contents__form__motion__auctionbtn",value:"出品する"
       = f.submit :name, class:"contents__form__motion__returnbtn",value:"戻る"
