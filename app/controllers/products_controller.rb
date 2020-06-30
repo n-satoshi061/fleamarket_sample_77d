@@ -1,8 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :move_to_index, except: :index
 
   def index
-    #@products = Product.includes(:images).order('created_at DESC')
     @product = Product.all
   end
 
@@ -21,17 +19,10 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
   end
 
   def buy
-  end
-
-  def update
-    if @product.update(product_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
   end
 
   def destroy
@@ -54,4 +45,5 @@ class ProductsController < ApplicationController
   def set_product
     @product = Product.find(params[:id])
   end
+
 end
