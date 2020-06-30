@@ -132,13 +132,23 @@
         margin-left: auto;
         display: flex;
         &__notice{
-          padding: 0px 14px;
+          padding: 9.5px 14px;
+          line-height: 14px;
         }
         &__todo{
-          padding: 0px 14px;
+          padding: 9.5px 14px;
+          line-height: 14px;
         }
         &__mypage{
-          padding: 0px 14px;
+          padding: 0 14px;
+          line-height: 14px;
+          &__link{
+            display: flex;
+            &__text{
+              padding-left: 10px;
+              line-height: 33px;
+            }
+          }
         }
         &__signup{
           color: #333;

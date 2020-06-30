@@ -1,9 +1,10 @@
 .main-content
   %section.mypage-user
     = link_to "#" do
-      .avatar
+      = image_tag "icon/member_photo_noimage_thumb.png",class: "avatar", size: "33x33" 
       %h2
         = current_user.nickname
+
       .mypage-user__number
         %div 
           評価 
