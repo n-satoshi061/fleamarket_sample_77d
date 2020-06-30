@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :move_to_index, except: :index
   before_action :set_item, only:[:show, :destroy, :edit, :update, :purchase, :payment]
 
+
   def index
     @product = Product.all
   end
@@ -31,21 +32,10 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
   end
 
   def buy
   end
 
-  def destroy
-    product = Product.find(params[:id])
-    if product.user_id == current_user.id
-      product.destroy
-      redirect_to("/")
-    end
-  end
-
-  private
-  def move_to_index
-    redirect_to action: :index unless user_signed_in?
-  end
 end
