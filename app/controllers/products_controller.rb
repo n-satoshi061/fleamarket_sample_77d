@@ -4,6 +4,20 @@ class ProductsController < ApplicationController
     @product = Product.all
   end
 
+  def new
+    @product = Product.new
+    @product.images.new
+  end
+
+  def create
+    @product = Product.new(product_params)
+    if @product.save
+    redirect_to root_path
+    else
+    render :new
+    end
+  end
+
   def show
     @product = Product.find(params[:id])
   end
@@ -11,5 +25,25 @@ class ProductsController < ApplicationController
   def buy
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    if item.user_id == current_user.id
+      item.destroy
+      redirect_to("/")
+    end
+  end
+
+  private
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
+
+  def product_params
+    params.require(:product).permit(:name, :price, images_attributes: [:src, :_destroy, :id])
+  end
+  
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
 end
