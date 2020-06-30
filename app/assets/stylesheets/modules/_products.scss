@@ -72,6 +72,7 @@
           height: 30px;
           line-height: 10px;
           color: white;
+          display: flex;
           position: absolute;
           top: 150px;
           padding: 10px;
@@ -81,6 +82,9 @@
           border-top-right-radius : 15px;
           -webkit-border-top-right-radius: 15px;
           -moz-border-radius-topright: 15px;
+          p{
+            margin-left: 2px;
+          }
         }
         &__product_name{
           height: 80px;
