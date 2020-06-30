@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2020_06_23_023849) do
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
     t.integer "user_id", null: false
     t.string "customer_id", null: false
     t.string "card_id", null: false
@@ -54,18 +53,15 @@ ActiveRecord::Schema.define(version: 2020_06_23_023849) do
     t.text "introduction", null: false
     t.integer "price", null: false
     t.string "from_area", null: false
-    t.boolean "delivery_person", null: false
     t.string "delivery_leadtime", null: false
     t.string "delivery_way", null: false
     t.integer "status", null: false
+    t.bigint "user_id", null: false
     t.bigint "category_id", null: false
-    t.bigint "buyer_id"
-    t.bigint "seller_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["buyer_id"], name: "index_products_on_buyer_id"
     t.index ["category_id"], name: "index_products_on_category_id"
-    t.index ["seller_id"], name: "index_products_on_seller_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -80,7 +76,7 @@ ActiveRecord::Schema.define(version: 2020_06_23_023849) do
     t.string "personal_name", null: false
     t.string "family_name_kana", null: false
     t.string "personal_name_kana", null: false
-    t.string "tel", null: false
+    t.integer "tel"
     t.string "post_family_name", null: false
     t.string "post_personal_name", null: false
     t.string "post_family_name_kana", null: false
@@ -97,6 +93,5 @@ ActiveRecord::Schema.define(version: 2020_06_23_023849) do
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "categories"
-  add_foreign_key "products", "users", column: "buyer_id"
-  add_foreign_key "products", "users", column: "seller_id"
+  add_foreign_key "products", "users"
 end

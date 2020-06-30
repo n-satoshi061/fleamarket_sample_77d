@@ -13,7 +13,7 @@
     .header__box__lower 
       %ul.header__box__lower__left 
         %li.header__box__lower__left__category 
-          = link_to "#", class: "catbtn__category" do
+          = link_to "#", class: "header__box__lower__left__category__btn" do
             カテゴリー 
           .header__box__lower__left__category__hide 
             .header__box__lower__left__category__hide__tree 
@@ -63,20 +63,20 @@
             ブランド 
       %ul.header__box__lower__right 
         - if user_signed_in? 
-          %li.box__lower__right__notice 
-            = link_to class: "" do
+          %li.header__box__lower__right__notice 
+            = link_to "#", class: "" do
               お知らせ 
-          %li.box__lower__right__todo 
-            = link_to class: "" do
+          %li.header__box__lower__right__todo 
+            = link_to "#", class: "" do
               やることリスト 
-          %li.box__lower__right__mypage 
-            = link_to "#",class: "" do
-              = image_tag "icon/member_photo_noimage_thumb.png", size: "134x36" 
-              マイページ 
+          %li.header__box__lower__right__mypage 
+            = link_to users_path, class: "header__box__lower__right__mypage__link" do
+              = image_tag "icon/member_photo_noimage_thumb.png",class: "header__box__lower__right__mypage__link__icon", size: "33x33" 
+              %p.header__box__lower__right__mypage__link__text マイページ 
         - else 
           %li.header__box__lower__right__signup  
-            = link_to "#", class: "submit-btn header-registration-btn" do
+            = link_to new_user_session_path, class: "submit-btn header-registration-btn" do
               ログイン 
           %li.header__box__lower__right__signin 
-            = link_to "#", class: "submit-btn header-registration-btn" do
+            = link_to step1_signup_index_path, class: "submit-btn header-registration-btn" do
               新規会員登録 
