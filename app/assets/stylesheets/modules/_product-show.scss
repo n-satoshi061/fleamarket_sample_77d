@@ -24,10 +24,61 @@ body {
     margin: 16px 0;
     &__photo {
       background: #fafafa;
-      float: left;
       min-height: 375px;
       max-width: 300px;
       min-width: 300px;
+      display: inline-block;
+      .owl-carousel {
+        line-height: 0;
+        position: relative;
+        min-height: 0;
+        min-width: 0;
+        .owl-stage {
+          display: flex;
+          overflow: hidden;
+          .sold-out-image {
+            height: 0;
+            width: 0;
+            border: 60px solid;
+            border-style: solid;
+            border-color: #ea352d transparent transparent #ea352d;
+            z-index: 1;
+            position: absolute;
+            .sold-out-text {
+              transform: rotate(-45deg);
+              font-size: 28px;
+              margin: -5px 0px 0px -55px;
+              color: #fff;
+              letter-spacing: 2px;
+              font-weight: 600;
+            }
+            .main-item-image {
+              height: 300px !important;
+              width: 300px;
+            }
+          }
+        }
+      }
+      .owl-dots {
+        line-height: 0;
+        width: 300px;
+        display: flex;
+        .owl-dot {
+          list-style: none;
+          height: 60px;
+          width: 60px !important;
+          outline: none;
+        }
+      }
+    }
+    .mini-item-image {
+      height: 60px;
+      width: 60px;
+      cursor: pointer;
+      flex-wrap: wrap;
+    }
+    #owl-item {
+      height: 300px;
     }
     table {
       float: right;
