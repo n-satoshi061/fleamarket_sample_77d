@@ -9,9 +9,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
-
-    #セレクトボックスの初期値設定
-    @category_parent_array = ["選択してください"]
+    
     #データベースから、親カテゴリーのみ抽出し、配列化
     @category_parent_array = Category.where(ancestry: nil)
   end
