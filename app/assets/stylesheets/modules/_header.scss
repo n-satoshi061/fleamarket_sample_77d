@@ -91,7 +91,6 @@
               position: absolute;
               background-color: #fff;
               width: 240px;
-              top: 40px;
               &__list{
                 background-color: #fff;
                 display: flex;
@@ -133,13 +132,23 @@
         margin-left: auto;
         display: flex;
         &__notice{
-          padding: 0px 14px;
+          padding: 9.5px 14px;
+          line-height: 14px;
         }
         &__todo{
-          padding: 0px 14px;
+          padding: 9.5px 14px;
+          line-height: 14px;
         }
         &__mypage{
-          padding: 0px 14px;
+          padding: 0 14px;
+          line-height: 14px;
+          &__link{
+            display: flex;
+            &__text{
+              padding-left: 10px;
+              line-height: 33px;
+            }
+          }
         }
         &__signup{
           color: #333;
@@ -151,6 +160,25 @@
           line-height: 38px;
           padding: 0 0 0 16px;
         }
+      }
+    }
+  }
+}
+
+
+.single-header{
+  text-align: center;
+  height: 128px;
+  &__logo{
+    display: inline-block;
+    margin: 40px 0 0;
+    &__link{
+      display: inline-block;
+      margin: 0 8px 0 0;
+      line-height: 48px;
+      &__images{
+        width: 180px;
+        height: 48px;
       }
     }
   }
