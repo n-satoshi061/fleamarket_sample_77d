@@ -39,9 +39,9 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @category = @product.category
-    @category_parent = @category.parent.parent
-    @category_child = @category.parent
+    @category_grandchild = @product.category
+    @category_parent = @category_grandchild.parent.parent
+    @category_child = @category_grandchild.parent
   end
 
   def buy
