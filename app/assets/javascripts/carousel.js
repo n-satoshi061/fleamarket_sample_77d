@@ -1,9 +1,6 @@
-$(document).on('turbolinks:load', function() {
-  $('.owl-stage').slick({
-    arrows: false,
-  });
-});
-
+$(function() {
+  $('.owl-stage').slick();
+})
 //   $('.owl-dot').slick({
 //     asNavFor: '#owl-item',
 //     slidedToShow: 2,
