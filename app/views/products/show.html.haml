@@ -7,13 +7,10 @@
     .product-content__photo
       .owl-carousel
         %ul.owl-stage
-          - if @product.buyer_id.present? 
-            .sold
-              .sold__text
-                SOLD
-            - @product.images.each.with_index(1) do |image, index|
-              %li.owl-item
-                = image_tag image.image.to_s, class: "main-item-image"
+          - @product.images.each.with_index(1) do |image, index|
+            %li.owl-item
+              = image_tag image.image.to_s, class: "main-item-image"
+              
       %ul.owl-dots
         - @product.images.each.with_index(1) do |image, index|
           %li.owl-dot
