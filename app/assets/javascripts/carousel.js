@@ -1,6 +1,19 @@
 $(function() {
-  $('.owl-stage').slick();
-})
+  $('.owl-stage').slick({
+    arrows: false,
+  });
+  $('.owl-dot').on('mouseover', function() {
+    $('.owl-stage').slick('slickGoTo', $(this).index());
+  });
+});
+
+
+
+
+
+
+
+
 //   $('.owl-dot').slick({
 //     asNavFor: '#owl-item',
 //     slidedToShow: 2,
