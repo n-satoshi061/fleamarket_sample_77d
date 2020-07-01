@@ -37,12 +37,9 @@
         %tr
           %th カテゴリー
           %td
-            = link_to "#" do
-              %div カテゴリー1
-            = link_to "#" do
-              %div カテゴリー100
-            = link_to "#" do
-              %div カテゴリー300
+            = link_to "#{@category_parent.text}", "#"
+            = link_to "#{@category_child.text}", "#"
+            = link_to "#{@category_grandchild.text}", "#"
         %tr
           %th ブランド
           %td ブランドA

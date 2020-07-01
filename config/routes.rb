@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index,:new, :show, :buy, :destroy] do
     #Ajaxで動くアクションのルートを作成
     collection do
-      get 'category/get_category_children', to: 'ptoducts#get_category_children', defaults: { format: 'json' }
+      get 'category/get_category_children', to: 'products#get_category_children', defaults: { format: 'json' }
       get 'category/get_category_grandchildren', to: 'products#get_category_grandchildren', defaults: { format: 'json' }
     end
   end

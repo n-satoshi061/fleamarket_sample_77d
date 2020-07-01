@@ -162,15 +162,40 @@ body{
           font-family: Arial, Helvetica, sans-serif;
           color: gray;
           font-size: 16px;
-          &__box{
-            display: inline-block;
-            position: relative;
+          &__added{
+            margin-top: 10px;
             width: inherit;
             border: 1px solid  darkslategray;
             border-radius: 4px;
             height: 48px;
             line-height: 48px;
+            position: relative;
+            font-size: 16px;
           }
+          &__select{
+            width: 100%;
+            border-radius: 4px;
+            height: 48px;
+            line-height: 48px;
+            position: relative;
+            font-size: 16px;
+          }
+          &__box{
+            width: inherit;
+            border: 1px solid  darkslategray;
+            border-radius: 4px;
+            height: 48px;
+            line-height: 48px;
+            position: relative;
+            font-size: 16px;
+          }
+        }
+        &__text--select{
+          width: inherit;
+          border-radius: 4px;
+          height: 48px;
+          line-height: 48px;
+          position: relative;
         }
       }
       &__brand{
@@ -193,7 +218,6 @@ body{
           font-size: 16px;
           &__box{
             display: inline-block;
-            position: relative;
             width: inherit;
             border: 1px solid  darkslategray;
             border-radius: 4px;

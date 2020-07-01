@@ -53,16 +53,7 @@
             %span.essential
               必須
           .contents__form__detail__category__text
-            %select{name:"name",required:"",class:"contents__form__detail__category__text__box"}
-              %option{value:""}選択してください
-              %option{value:"レディース"}レディース
-              %option{value:"メンズ"}メンズ
-              %option{value:"ベビー・キッズ"}ベビー・キッズ
-              %optgroup{label:"詳細"}詳細
-              %option{value:"インテリア"}インテリア
-              %option{value:"本"}本
-              %option{value:"おもちゃ"}おもちゃ
-              %option{value:"コスメ"}コスメ
+            = f.collection_select(:category_id, Category.where(ancestry: nil), :id, :text, {prompt: "選択してください"}, {id: 'parent_category',class: "contents__form__detail__category__text__box"})
         .contents__form__detail__brand
           .contents__form__detail__brand__title
             ブランド

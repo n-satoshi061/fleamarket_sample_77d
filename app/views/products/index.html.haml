@@ -95,8 +95,8 @@
       .products__heading レディース新着アイテム
       .products__more_btn もっと見る ＞
     .product
-      = link_to product_path(@product), class: "product__flex" do
-        - @product.each do |product|
+      - @product.each do |product|
+        = link_to product_path(@product.ids), class: "product__flex" do
           .product__flex__list
             = image_tag product.images.first.image.to_s, alt: "test", class: "product__flex__list__image"
             -if product.buyer_id.present? 

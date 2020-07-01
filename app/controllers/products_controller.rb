@@ -10,6 +10,11 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
+
+    #セレクトボックスの初期値設定
+    @category_parent_array = ["選択してください"]
+    #データベースから、親カテゴリーのみ抽出し、配列化
+    @category_parent_array = Category.where(ancestry: nil)
   end
 
   # 以下全て、formatはjsonのみ
@@ -37,6 +42,10 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @category = @product.category_id
+    @category_parent = Category.find(@category).parent.parent
+    @category_child = Category.find(@category).parent
+    @category_grandchild = Category.find(@category)
   end
 
   def buy
