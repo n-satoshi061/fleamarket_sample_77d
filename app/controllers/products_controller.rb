@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
   before_action :move_to_index, except: :index
-  # before_action :set_item, only:[:show, :destroy, :edit, :update, :purchase, :payment]
 
 
   def index
