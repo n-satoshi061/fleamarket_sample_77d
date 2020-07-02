@@ -70,9 +70,9 @@
             = link_to "#", class: "" do
               やることリスト 
           %li.header__box__lower__right__mypage 
-            = link_to users_path,class: "" do
-              = image_tag "icon/member_photo_noimage_thumb.png", size: "134x36" 
-              マイページ 
+            = link_to users_path, class: "header__box__lower__right__mypage__link" do
+              = image_tag "icon/member_photo_noimage_thumb.png",class: "header__box__lower__right__mypage__link__icon", size: "33x33" 
+              %p.header__box__lower__right__mypage__link__text マイページ 
         - else 
           %li.header__box__lower__right__signup  
             = link_to new_user_session_path, class: "submit-btn header-registration-btn" do

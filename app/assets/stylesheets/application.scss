@@ -1,22 +1,23 @@
 @import "modules/users";
-@import "./modules/mypage-main";
-@import "./modules/mypage-side";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "reset"; 
 @import "./modules/header"; 
 @import "./modules/footer"; 
-// @import "header"; 
-// @import "footer"; 
 @import "./modules/main-visual"; 
 @import "./modules/products"; 
+@import "./modules/products_new";
 @import "./modules/product-show"; 
+
+@import "./modules/mypage-side";
+@import "./modules/mypage-main";
 
 @import "./modules/logout";
 @import "./modules/card";
-@import "font-awesome-sprockets";
-@import "font-awesome";
 @import "./modules/login";
 
 @import "slick-theme";
 @import "slick";
+
+
+

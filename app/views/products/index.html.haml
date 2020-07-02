@@ -24,7 +24,7 @@
         %span.top-introduction__lists__list__pict__number  1 
         = image_tag 'pict/pict-reason-01.jpg', class: 'top-introduction__lists__list__pict__image' 
       %h3.top-introduction__lists__list__text   
-        %span 3分 
+        %span.top-introduction__lists__list__text  3分 
         ですぐに出品 
       %p.top-introduction__lists__list__description  スマホで入力するだけで簡単に出品できる！ 
 
@@ -95,10 +95,10 @@
       .products__heading レディース新着アイテム
       .products__more_btn もっと見る ＞
     .product
-      = link_to product_path(@product), class: "product__flex" do
-        - @product.each do |product|
+      - @product.each do |product|
+        = link_to product_path(product.id), class: "product__flex" do
           .product__flex__list
-            = image_tag product.images.first.image, alt: "test", class: "product__flex__list__image"
+            = image_tag product.images.first.image.to_s, alt: "test", class: "product__flex__list__image"
             -if product.buyer_id.present? 
               .product__flex__list__image__sold
                 .product__flex__list__image__sold__inner SOLD

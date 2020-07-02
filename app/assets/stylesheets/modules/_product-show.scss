@@ -33,6 +33,7 @@ body {
         position: relative;
         min-height: 0;
         min-width: 0;
+
         .sold {
           height: 0;
           width: 0;
@@ -54,6 +55,28 @@ body {
         .owl-stage {
           display: flex;
           overflow: hidden;
+
+        .owl-stage {
+          display: flex;
+          overflow: hidden;
+          .sold {
+            height: 0;
+            width: 0;
+            border: 60px solid;
+            border-style: solid;
+            border-color: #ea352d transparent transparent #ea352d;
+            z-index: 1;
+            position: absolute;
+            &__text {
+              transform: rotate(-45deg);
+              font-size: 28px;
+              margin: -5px 0px 0px -55px;
+              color: #fff;
+              letter-spacing: 2px;
+              font-weight: 600;
+            }
+          }
+
           .main-item-image {
             height: 300px;
             width: 300px;
