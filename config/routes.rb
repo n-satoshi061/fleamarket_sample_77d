@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
-  resources :products, only: [:index, :new, :show, :destroy] do
+  resources :products, only: [:index,:new, :show, :destroy] do
+    #Ajaxで動くアクションのルートを作成
+    collection do
+      get 'category/get_category_children', to: 'products#get_category_children', defaults: { format: 'json' }
+      get 'category/get_category_grandchildren', to: 'products#get_category_grandchildren', defaults: { format: 'json' }
+      post 'pay'
+    end
     member do
       get 'buy'
-    end
-    collection do
-      post 'pay'
     end
   end
   resources :signup, only: :create do

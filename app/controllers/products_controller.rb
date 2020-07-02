@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
   require 'payjp'
 
+
   def index
     @product = Product.all
   end
@@ -9,6 +10,21 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
+    @category_parent_first = Category.where(ancestry: nil)
+  end
+
+  # 以下全て、formatはjsonのみ
+  # 親カテゴリーが選択された後に動くアクション
+  def get_category_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+    # ここでfind_byを使うことでレディーしか取れてなかった
+    @category_children = Category.find(params[:parent_id]).children
+  end
+
+  # 子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    @category_grandchildren = Category.find(params[:child_id]).children
   end
 
   def create
@@ -22,6 +38,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    # カテゴリ名を取得するために@categoryにレコードをとってくる
+    @category = @product.category
   end
 
   def buy
@@ -65,9 +83,5 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :price, images_attributes: [:src, :_destroy, :id])
-  end
-
-  def set_product
-    @product = Product.find(params[:id])
   end
 end
