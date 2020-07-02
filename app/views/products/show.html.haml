@@ -6,14 +6,15 @@
   .product-content.clearfix
     .product-content__photo
       .owl-carousel
+        - if @product.buyer_id.present? 
+          .sold
+            .sold__text
+              SOLD
         %ul.owl-stage
           - @product.images.each.with_index(1) do |image, index|
             %li.owl-item
               = image_tag image.image.to_s, class: "main-item-image"
-            - if @product.buyer_id.present? 
-              .sold
-                .sold__text
-                  SOLD
+            
       %ul.owl-dots
         - @product.images.each.with_index(1) do |image, index|
           %li.owl-dot
@@ -118,4 +119,3 @@
 = render "layouts/footer-publicity" 
 = render "layouts/footer-introduction" 
 = render "layouts/bottom-camera" 
-
