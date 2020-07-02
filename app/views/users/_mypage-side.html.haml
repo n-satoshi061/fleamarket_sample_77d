@@ -10,7 +10,7 @@
           お知らせ
           %i.fa.fa-chevron-right.arrow-right
       %li
-        = link_to new_product_path, class: "list" do
+        = link_to "#", class: "list" do
           出品する
           %i.fa.fa-chevron-right.arrow-right
       %li
@@ -65,8 +65,9 @@
           支払い方法
           %i.fa.fa-chevron-right.arrow-right
       %li
-        = link_to "#", class: "list" do
-          メール/パスワード
+        -# = link_to card_path, class: "list" do
+        = link_to new_card_path, class: "list" do
+          クレジットカード情報
           %i.fa.fa-chevron-right.arrow-right
       %li
         = link_to "#", class: "list" do
