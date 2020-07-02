@@ -37,12 +37,16 @@
         %tr
           %th カテゴリー
           %td
-            = link_to "#" do
-              %div カテゴリー1
-            = link_to "#" do
-              %div カテゴリー100
-            = link_to "#" do
-              %div カテゴリー300
+            - if @category.ancestry == nil
+              = link_to "#{@category.text}", "#"
+            - elsif @category.ancestry.include?("/")
+              = link_to "#{@category.parent.parent.text}", "#"
+              = link_to "#{@category.parent.text}", "#"
+              = link_to "#{@category.text}", "#"
+            - else
+              = link_to "#{@category.parent.text}", "#"
+              = link_to "#{@category.text}", "#"
+              
         %tr
           %th ブランド
           %td ブランドA
