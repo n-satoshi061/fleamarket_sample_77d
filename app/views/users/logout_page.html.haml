@@ -5,7 +5,8 @@
     %form.logout
       .logout__box
         %button.logout__box__btn
-          ログアウト
+          = link_to destroy_user_session_path, method: :delete do
+            ログアウト
 
 = render "layouts/footer-publicity" 
 = render "layouts/footer-introduction" 
