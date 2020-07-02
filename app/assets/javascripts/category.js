@@ -9,7 +9,7 @@
       let childSelectHtml = '';
       childSelectHtml = `<div class='contents__form__detail__category__text__added' id= 'children_wrapper'>
                           <select class="contents__form__detail__category__text--select" id="child_category" name="item[category_id]">
-                            <option value="選択してください" data-category="選択してください">選択してください</option>
+                            <option value="----" data-category="----">----</option>
                             ${insertHTML}
                           <select>
                           </div>
@@ -23,7 +23,7 @@
       grandchildSelectHtml = `<div class='contents__form__detail__category__text__added' id= 'grandchildren_wrapper'>
                                 <div class='contents__form__detail__category__text2'>
                                   <select class="contents__form__detail__category__text__select" id="grandchild_category" name="item[category_id]">
-                                    <option value="選択してください" data-category="選択してください">選択してください</option>
+                                    <option value="----" data-category="----">----</option>
                                     ${insertHTML}
                                   </select>
                                 </div>

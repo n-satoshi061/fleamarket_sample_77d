@@ -53,7 +53,7 @@
             %span.essential
               必須
           .contents__form__detail__category__text
-            = f.collection_select(:category_id, Category.where(ancestry: nil), :id, :text, {prompt: "選択してください"}, {id: 'parent_category',class: "contents__form__detail__category__text__box"})
+            = f.collection_select(:category_id, @category_parent_first, :id, :text, {prompt: "選択してください"}, {id: 'parent_category',class: "contents__form__detail__category__text__box"})
         .contents__form__detail__brand
           .contents__form__detail__brand__title
             ブランド

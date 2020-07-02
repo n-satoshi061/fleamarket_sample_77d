@@ -9,9 +9,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
-
-    #データベースから、親カテゴリーのみ抽出し、配列化
-    @category_parent_array = Category.where(ancestry: nil)
+    @category_parent_first = Category.where(ancestry: nil)
   end
 
   # 以下全て、formatはjsonのみ
@@ -39,9 +37,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @category_grandchild = @product.category
-    @category_parent = @category_grandchild.parent.parent
-    @category_child = @category_grandchild.parent
+    # カテゴリ名を取得するために@categoryにレコードをとってくる
+    @category = @product.category
   end
 
   def buy
