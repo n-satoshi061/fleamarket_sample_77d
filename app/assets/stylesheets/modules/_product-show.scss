@@ -55,7 +55,7 @@ body {
         .owl-stage {
           display: flex;
           overflow: hidden;
-
+        }
         .owl-stage {
           display: flex;
           overflow: hidden;
@@ -384,7 +384,7 @@ a {
 button {
   cursor: pointer;
 }
-.clearfix::after {
+.clearfix::after{
   content: "";
   clear: both;
   display: block;

@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :move_to_index, except: :index
+
+  require 'payjp'
 
 
   def index
@@ -43,13 +44,35 @@ class ProductsController < ApplicationController
   end
 
   def buy
+    @address = Address.where(user_id: current_user.id).first
+    @product = Product.find(params[:id])
+    @image = Image.find(@product[:id])
+
+    card = Card.where(user_id: current_user.id).first
+    if card.blank?
+      @default_card_information = nil
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
+  end
+
+  def pay
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+    amount: params[:buy_price],
+    customer: card.customer_id,
+    currency: 'jpy',
+    )
+    redirect_to root_path
   end
 
   def destroy
-    item = Item.find(params[:id])
-    if item.user_id == current_user.id
-      item.destroy
-      redirect_to("/")
+    @product = Product.find(params[:id])
+    if @product.seller_id == current_user.id &&  @product.destroy
+      redirect_to  delete_product_users_path
     end
   end
 
@@ -62,5 +85,4 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:title, :introduction, :price, :from_area, :delivery_person, :delivery_leadtime, :delivery_way, :status, :category_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 
-  
 end
