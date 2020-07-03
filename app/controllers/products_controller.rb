@@ -30,9 +30,10 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-    redirect_to root_path
+      redirect_to root_path
     else
-    render :new
+      @category_parent_first = Category.where(ancestry: nil)
+      render :new
     end
   end
 
@@ -81,6 +82,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :price, images_attributes: [:src, :_destroy, :id])
+    params.require(:product).permit(:title, :introduction, :price, :from_area, :delivery_person, :delivery_leadtime, :delivery_way, :status, :category_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
   end
+
 end
