@@ -2,7 +2,9 @@
   %section.mypage-user
     = link_to "#" do
       = image_tag "icon/member_photo_noimage_thumb.png",class: "avatar", size: "33x33" 
-      %h2 user-name
+      %h2
+        = current_user.nickname
+
       .mypage-user__number
         .user-value
           評価 

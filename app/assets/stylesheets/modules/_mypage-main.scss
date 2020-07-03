@@ -50,8 +50,10 @@ body {
     font-size: 14px;
   }
 }
+
 .user-value {
   display: inline-block;
+
   font-size: 14px;
   span {
     font-size: 16px;
@@ -177,7 +179,6 @@ body {
       }
     }
     li {
-      display: inline-block;
       width: 50%;
       text-align: center;
       vertical-align: top;
