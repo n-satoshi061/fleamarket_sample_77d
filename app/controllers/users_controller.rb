@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   end
 
   def delete_product
-    @user = current_user
-    @products = Product.where(seller_id: @user.id).order(id: "DESC")
+    @products = Product.where(seller_id: current_user.id).order(id: "DESC")
   end
 end
