@@ -8,39 +8,53 @@
       .item-inner
         .item-inner__mask
           .item-inner__mask__image
-            = image_tag "/"
+            = image_tag @image[:image], alt: "test", width: "80", height: "80"
         .item-info
-          %p.item-name AAAAAAAA
+          %p.item-name
+            = @product[:title]
           %p.item-money
             %span.fee 送料込み(税込)
-            %span.price ¥5,000
+            %span.price
+              = "¥" + @product[:price].to_s
     .purchase-container__content__box
       .payment-inner
         .payment-inner__pay
           %span.pay-text 支払い金額
-          %span.sum ¥5,000
+          %span.sum
+            = "¥" + @product[:price].to_s
     .purchase-container__content__box
       .payment-method-inner
         .payment-method-inner__head
           %h3.method 支払い方法
-          %a.method-fix 変更する
+          -if @default_card_information != nil
+            = link_to "変更する", new_card_path, {class: "method-fix"}
+            - card_info = true
+          - else
+            = link_to "クレジットカードを登録してください", new_card_path, {class: "method-fix"}
+            - card_info = false
         .payment-method-inner__main
-          %p クレジットカード
-          %p ****************
-          %p 有効期限
-          = image_tag "/"
+          -if @default_card_information != nil
+            %p クレジットカード
+            = "**** **** **** " + @default_card_information.last4
+            %p 有効期限
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
     .purchase-container__content__box
       .post-inner
         .post-inner__head
           %h3.post 配送先
-          %a.post-fix 変更する
         .post-inner__address
-          %p 〒999-999
-          %p 大阪府大阪市
-          %p user-name
+          = "〒" + @address[:postal_code].to_s
+          %br
+          = @address[:prefecture] + @address[:city] + @address[:block] + @address[:building]
     .purchase-container__content__box
-      .buy-button
-        購入する
+      = form_tag(action: :pay, method: :post) do
+        = text_field_tag :buy_price, @product[:price], { type: "hidden", class: "text" }
+        - if card_info == false
+          = button_tag '購入する', type: 'submit', class: 'buy-button', disabled: true
+        - else
+          = button_tag '購入する', type: 'submit', class: 'buy-button'
 
 = render "layouts/footer-publicity" 
 = render "layouts/footer-introduction" 

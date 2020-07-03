@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :move_to_index, except: :index
+
+  require 'payjp'
 
 
   def index
@@ -42,6 +43,29 @@ class ProductsController < ApplicationController
   end
 
   def buy
+    @address = Address.where(user_id: current_user.id).first
+    @product = Product.find(params[:id])
+    @image = Image.find(@product[:id])
+
+    card = Card.where(user_id: current_user.id).first
+    if card.blank?
+      @default_card_information = nil
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
+  end
+
+  def pay
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+    amount: params[:buy_price],
+    customer: card.customer_id,
+    currency: 'jpy',
+    )
+    redirect_to root_path
   end
 
   def destroy
@@ -59,5 +83,4 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :price, images_attributes: [:src, :_destroy, :id])
   end
-  
 end

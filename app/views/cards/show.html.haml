@@ -1,0 +1,27 @@
+= render "layouts/main-header"
+
+.main-container.clearfix
+  = render "users/mypage-side"
+  .main-container__content
+    %h2.main-container__content__head
+      クレジットカード情報詳細
+    .registration-card
+      .registration-card__box
+        .card_info
+          .card_info__title 登録クレジットカード番号
+          .card_info__num
+            = "**** **** **** " + @default_card_information.last4
+          .card_info__limit
+            .card_info__limit__title 有効期限
+            .card_info__limit__month-year
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
+          .registration-card__form-btn-default
+            = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+              %input{ type: "hidden", name: "card_id", value: "" }
+              %button{ class: "card_btn" } 削除する
+
+= render "layouts/footer-publicity"
+= render "layouts/footer-introduction"
+= render "layouts/bottom-camera"
