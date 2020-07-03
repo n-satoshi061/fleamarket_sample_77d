@@ -96,16 +96,16 @@
       .products__more_btn もっと見る ＞
     .product
       - @product.each do |product|
-        = link_to product_path(product.id), class: "product__flex" do
-          .product__flex__list
-            = image_tag product.images.first.image.to_s, alt: "test", class: "product__flex__list__image"
+        = link_to product_path(product.id) do
+          .product__list
+            = image_tag product.images.first.image.to_s, alt: "test", class: "product__list__image"
             -if product.buyer_id.present? 
-              .product__flex__list__image__sold
-                .product__flex__list__image__sold__inner SOLD
-            .product__flex__list__price
+              .product__list__image__sold
+                .product__list__image__sold__inner SOLD
+            .product__list__price
               = product.price
               %p 円
-            .product__flex__list__product_name
+            .product__list__product-name
               = product.title
 
 

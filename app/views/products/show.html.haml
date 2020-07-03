@@ -6,18 +6,20 @@
   .product-content.clearfix
     .product-content__photo
       .owl-carousel
+        - if @product.buyer_id.present? 
+          .sold
+            .sold__text
+              SOLD
         %ul.owl-stage
-          - if @product.buyer_id.present? 
-            .sold
-              .sold__text
-                SOLD
-            - @product.images.each.with_index(1) do |image, index|
-              %li.owl-item
+          - @product.images.each.with_index(1) do |image, index|
+            %li.owl-item
               = image_tag image.image.to_s, class: "main-item-image"
+
       %ul.owl-dots
         - @product.images.each.with_index(1) do |image, index|
           %li.owl-dot
             = image_tag image.image.to_s, class: "mini-item-image"
+            
     %table.product-content__detail
       %tbody
         %tr
@@ -80,7 +82,7 @@
   - if user_signed_in? && current_user.id == @product.seller.id
     = link_to "#", class: "product-buy-btn" do
       編集する
-    = link_to "#", class: "product-buy-btn" do
+    = link_to product_path, method: :delete, data: {confirm: "削除しますか？"}, class: "product-buy-btn" do
       削除する
   - elsif @product.buyer_id.present?
     = link_to "#", class: "disabeled-btn" do
@@ -91,7 +93,7 @@
   - else
     = link_to new_user_session_path, class: "product-buy-btn" do
       購入画面に進む
-      
+
   .product-description
     %p.product-description__text
       = @product.introduction
@@ -121,4 +123,3 @@
 = render "layouts/footer-publicity" 
 = render "layouts/footer-introduction" 
 = render "layouts/bottom-camera" 
-

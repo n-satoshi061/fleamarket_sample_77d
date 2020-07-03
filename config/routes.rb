@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index] do
     collection do
       get 'logout_page'
+      get 'delete_product'
     end
   end
   resources :cards, only: [:new, :show] do
