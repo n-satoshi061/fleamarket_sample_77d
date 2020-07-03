@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
-  resources :products, only: [:index,:new, :show, :buy, :destroy] do
+  resources :products, only: [:index, :new, :show, :buy, :destroy] do
     #Ajaxで動くアクションのルートを作成
     collection do
       get 'category/get_category_children', to: 'products#get_category_children', defaults: { format: 'json' }
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index] do
     collection do
       get 'logout_page'
+      get 'delete_product'
     end
   end
   resources :cards, only: [:new]
