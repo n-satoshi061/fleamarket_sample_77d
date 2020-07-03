@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
+    @product = Products.new
     @product.images.new
     @category_parent_first = Category.where(ancestry: nil)
   end
