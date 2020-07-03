@@ -14,7 +14,7 @@
           出品する
           %i.fa.fa-chevron-right.arrow-right
       %li
-        = link_to "#", class: "list" do
+        = link_to delete_product_users_path, class: "list" do
           出品した商品-出品中
           %i.fa.fa-chevron-right.arrow-right
       %li
@@ -65,8 +65,8 @@
           支払い方法
           %i.fa.fa-chevron-right.arrow-right
       %li
-        = link_to "#", class: "list" do
-          メール/パスワード
+        = link_to new_card_path, class: "list" do
+          クレジットカード情報
           %i.fa.fa-chevron-right.arrow-right
       %li
         = link_to "#", class: "list" do

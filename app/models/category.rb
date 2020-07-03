@@ -3,4 +3,5 @@ class Category < ApplicationRecord
   
   validates :text,     presence: true
 
+  has_ancestry
 end

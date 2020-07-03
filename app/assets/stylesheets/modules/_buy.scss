@@ -7,6 +7,7 @@
   &__content {
     position: relative;
     display: block;
+    margin: 50px 0;
     &__box {
       padding: 32px 16px;
       max-width: 375px;
@@ -78,6 +79,7 @@
       }
       .payment-method-inner {
         display: block;
+        line-height: 20px;
         &__head {
           display: flex;
           -webkit-box-pack: justify;
@@ -105,6 +107,7 @@
       }
       .post-inner {
         display: block;
+        line-height: 20px;
         &__head {
           display: flex;
           -webkit-box-pack: justify;
