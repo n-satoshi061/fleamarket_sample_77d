@@ -6,7 +6,6 @@ class Product < ApplicationRecord
   belongs_to :category
   accepts_nested_attributes_for :images, allow_destroy: true
 
-
   validates :title,               presence: true
   validates :introduction,        presence: true
   validates :status ,             presence: true
@@ -15,4 +14,5 @@ class Product < ApplicationRecord
   validates :from_area,           presence: true
   validates :delivery_leadtime,   presence: true
   validates :price,               presence: true, inclusion: 300..9999999
+
 end
