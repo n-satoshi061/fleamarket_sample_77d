@@ -12,7 +12,8 @@ body {
   display: block;
   padding-bottom: 40px;
 }
-.main-content {
+.mypage-main-content {
+  background: #f5f5f5;
   width: 700px;
   float: right;
 }
@@ -39,7 +40,6 @@ body {
     }
   }
   .avatar {
-    background-color: wheat;
     height: 60px;
     width: 60px;
     margin: 0 auto;
@@ -50,7 +50,10 @@ body {
     font-size: 14px;
   }
 }
-div {
+
+.user-value {
+  display: inline-block;
+
   font-size: 14px;
   span {
     font-size: 16px;
@@ -91,6 +94,7 @@ div {
 
 .tab-contents {
   display: block;
+  background: #fff;
   ul.tab-pane {
     display: block;
     li {
