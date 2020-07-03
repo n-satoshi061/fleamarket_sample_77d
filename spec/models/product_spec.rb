@@ -1,23 +1,22 @@
 require 'rails_helper'
 
 
-RSpec.describe Product, type: :model do  #rspecの宣誓
-  describe '#create' do #タイトル
+RSpec.describe Product, type: :model do 
+  describe '#create' do 
     before do
       @category = FactoryBot.create(:category)
     end
 
 
-    it "商品情報が全て存在すれば登録できること" do  #テスト時に表示される文言
-      product = build(:product)  #テスト時に使用されるインスタンス
+    it "商品情報が全て存在すれば登録できること" do  
+      product = build(:product) 
       binding.pry
-      expect(product).to be_valid #評価式とマッチャ（答え）
+      expect(product).to be_valid 
     end
 
 
     it "imageが１枚以上ない場合は登録できないこと" do
       product = build(:product)
-      # product.images << build_list(:image, 0)
       image = build(:image, product_id: product[:id], image: nil)
       image.valid?
       expect(image.errors[:image]).to include("can't be blank")
