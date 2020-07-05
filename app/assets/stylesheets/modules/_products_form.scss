@@ -239,7 +239,7 @@ body{
           font-family: Arial, Helvetica, sans-serif;
           color: gray;
           font-size: 16px;
-          &__box{
+          #product_productstatus_id{
             display: inline-block;
             position: relative;
             width: inherit;
@@ -279,7 +279,7 @@ body{
           font-family: Arial, Helvetica, sans-serif;
           color: gray;
           font-size: 16px;
-          &__box{
+          #product_deliveryperson_id{
             display: inline-block;
             position: relative;
             width: inherit;
@@ -308,7 +308,7 @@ body{
           font-family: Arial, Helvetica, sans-serif;
           color: gray;
           font-size: 16px;
-          &__box{
+          #product_deliveryway_id{
             display: inline-block;
             position: relative;
             width: 100%;
@@ -337,7 +337,7 @@ body{
           font-family: Arial, Helvetica, sans-serif;
           color: gray;
           font-size: 16px;
-          &__box{
+          #product_prefecture_id{
             display: inline-block;
             position: relative;
             width: 100%;
@@ -366,7 +366,7 @@ body{
           font-family: Arial, Helvetica, sans-serif;
           color: gray;
           font-size: 16px;
-          &__box{
+          #product_deliveryleadtime_id{
             display: inline-block;
             position: relative;
             width: inherit;
