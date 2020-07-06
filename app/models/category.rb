@@ -1,6 +1,7 @@
 class Category < ApplicationRecord
   has_many :products
-  has_ancestry
+  
+  validates :text,     presence: true
 
-  validates :text, presence: true
+  has_ancestry
 end

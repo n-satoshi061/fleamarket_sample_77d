@@ -96,6 +96,7 @@
       .products__more_btn もっと見る ＞
     .product
       - @product.each do |product|
+
         = link_to product_path(product.id) do
           .product__list
             = image_tag product.images.first.image.to_s, alt: "test", class: "product__list__image"
@@ -107,6 +108,7 @@
               %p 円
             .product__list__product-name
               = product.title
+
 
 
 = render "layouts/footer-publicity"

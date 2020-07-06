@@ -1,4 +1,4 @@
-.main-content
+.mypage-main-content
   %section.mypage-user
     = link_to "#" do
       = image_tag "icon/member_photo_noimage_thumb.png",class: "avatar", size: "33x33" 
@@ -6,11 +6,11 @@
         = current_user.nickname
 
       .mypage-user__number
-        %div 
+        .user-value
           評価 
           %span.maypage-user__number__bold
             1
-        %div 
+        .user-value 
           出品数
           %span.maypage-user__number__bold
             1

@@ -12,9 +12,10 @@ class Product < ApplicationRecord
   belongs_to :category
   accepts_nested_attributes_for :images, allow_destroy: true
 
+
   validates :title, presence: true
   validates :introduction, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, inclusion: 300..9999999
   validates :prefecture_id, presence: true
   validates :deliveryperson_id, presence: true
   validates :deliveryleadtime_id, presence: true
