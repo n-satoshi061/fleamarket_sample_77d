@@ -66,7 +66,7 @@ class ProductsController < ApplicationController
     if card.blank?
       @default_card_information = nil
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials.payjp[:payjp_private_key]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
@@ -74,7 +74,7 @@ class ProductsController < ApplicationController
 
   def pay
     card = Card.where(user_id: current_user.id).first
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp.api_key = Rails.application.credentials.payjp[:payjp_private_key]
     Payjp::Charge.create(
     amount: params[:buy_price],
     customer: card.customer_id,
