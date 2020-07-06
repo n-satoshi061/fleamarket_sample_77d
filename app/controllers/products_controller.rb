@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create]
+  before_action :set_product, except: [:index, :new, :create,:get_category_children, :get_category_grandchildren]
 
   require 'payjp'
 
