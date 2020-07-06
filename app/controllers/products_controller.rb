@@ -11,8 +11,6 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
-    #セレクトボックスの初期値設定
-    #データベースから、親カテゴリーのみ抽出し、配列化
     @category_parent_first = Category.where(ancestry: nil)
   end
 
