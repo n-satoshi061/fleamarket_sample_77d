@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_product, except: [:index, :new, :create]
 
   require 'payjp'
 
@@ -30,11 +31,25 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-    redirect_to root_path
+      redirect_to root_path
     else
-    render :new
+      @category_parent_first = Category.where(ancestry: nil)
+      render :new
     end
   end
+
+  def edit
+    @category_parent_first = Category.where(ancestry: nil)
+  end
+  
+  def update
+    if @product.update(product_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+  
 
   def show
     @product = Product.find(params[:id])
@@ -81,6 +96,11 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :price, images_attributes: [:src, :_destroy, :id])
+    params.require(:product).permit(:title, :introduction, :price, :prefecture_id, :deliveryperson_id, :deliveryleadtime_id, :deliveryway_id, :productstatus_id, :category_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
   end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
 end
