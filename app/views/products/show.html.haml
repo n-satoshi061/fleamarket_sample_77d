@@ -55,33 +55,31 @@
         %tr
           %th 商品の状態
           %td
-            = @product.status
+            = @product.productstatus.name
         %tr
           %th 配送料の負担
           %td
-            = @product.delivery_person
+            = @product.deliveryperson.name
         %tr
           %th 配送の方法
           %td
-            = @product.delivery_way
+            = @product.deliveryway.name
         %tr
           %th 発送元地域
           %td
-            = @product.from_area
+            = @product.prefecture.name
         %tr
           %th 発送日の目安
           %td
-            = @product.delivery_leadtime
+            = @product.deliveryleadtime.name
   .product-price.text-center
     %span.product-price__tag.bold
       ¥ #{@product.price}
     %span.product-price__tax  (税込)
     %span.product-price__fee
-      = @product.delivery_person
-
+      = @product.deliveryperson.name
   - if user_signed_in? && current_user.id == @product.seller.id
-    = link_to "#", class: "product-buy-btn" do
-      編集する
+    = link_to "編集する",edit_product_path(@product), class: "product-buy-btn" 
     = link_to product_path, method: :delete, data: {confirm: "削除しますか？"}, class: "product-buy-btn" do
       削除する
   - elsif @product.buyer_id.present?

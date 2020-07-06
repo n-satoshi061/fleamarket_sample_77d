@@ -17,6 +17,14 @@ body{
   line-height: 1.2em;
 }
 
+.option{
+  margin-left: 8px;
+  font-size: 14px;
+  background-color: lightgray;
+  color: white;
+  border-radius: 2px;
+}
+
 .contents{
   background-color: white;
   max-width: 700px;
@@ -24,6 +32,11 @@ body{
   margin: 0px auto;
   &__form{
     position: relative;
+    &__alert{
+      text-align: center;
+      color: red;
+      font-size: medium;
+    }
     &__display{
       padding: 40px;
       border-bottom: solid lightgray;
@@ -100,6 +113,11 @@ body{
             line-height: 48px;
           }
         }
+        &__error{
+          text-align: center;
+          color: red;
+          font-size: medium;
+        }
       }
       &__introduction{
         margin: 0;
@@ -126,6 +144,11 @@ body{
             border: 1px solid  darkslategray;
             border-radius: 4px;
           }
+        }
+        &__error{
+          text-align: center;
+          color: red;
+          font-size: medium;
         }
       }
     }
@@ -159,7 +182,7 @@ body{
           font-size: 16px;
           &__added{
             margin-top: 10px;
-            width: inherit;
+            width: 100%;
             border: 1px solid  darkslategray;
             border-radius: 4px;
             height: 48px;
@@ -176,7 +199,7 @@ body{
             font-size: 16px;
           }
           &__box{
-            width: inherit;
+            width: 100%;
             border: 1px solid  darkslategray;
             border-radius: 4px;
             height: 48px;
@@ -191,6 +214,11 @@ body{
           height: 48px;
           line-height: 48px;
           position: relative;
+        }
+        &__error{
+          text-align: center;
+          color: red;
+          font-size: medium;
         }
       }
       &__brand{
@@ -213,7 +241,7 @@ body{
           font-size: 16px;
           &__box{
             display: inline-block;
-            width: inherit;
+            width: 100%;
             border: 1px solid  darkslategray;
             border-radius: 4px;
             height: 48px;
@@ -239,15 +267,20 @@ body{
           font-family: Arial, Helvetica, sans-serif;
           color: gray;
           font-size: 16px;
-          &__box{
+          #product_productstatus_id{
             display: inline-block;
             position: relative;
-            width: inherit;
+            width: 100%;
             border: 1px solid  darkslategray;
             border-radius: 4px;
             height: 48px;
             line-height: 48px;
           }
+        }
+        &__error{
+          text-align: center;
+          color: red;
+          font-size: medium;
         }
       }
     }
@@ -279,15 +312,20 @@ body{
           font-family: Arial, Helvetica, sans-serif;
           color: gray;
           font-size: 16px;
-          &__box{
+          #product_deliveryperson_id{
             display: inline-block;
             position: relative;
-            width: inherit;
+            width: 100%;
             border: 1px solid  darkslategray;
             border-radius: 4px;
             height: 48px;
             line-height: 48px;
           }
+        }
+        &__error{
+          text-align: center;
+          color: red;
+          font-size: medium;
         }
       }
       &__person{
@@ -308,7 +346,7 @@ body{
           font-family: Arial, Helvetica, sans-serif;
           color: gray;
           font-size: 16px;
-          &__box{
+          #product_deliveryway_id{
             display: inline-block;
             position: relative;
             width: 100%;
@@ -317,6 +355,11 @@ body{
             height: 48px;
             line-height: 48px;
           }
+        }
+        &__error{
+          text-align: center;
+          color: red;
+          font-size: medium;
         }
       }
       &__area{
@@ -337,7 +380,7 @@ body{
           font-family: Arial, Helvetica, sans-serif;
           color: gray;
           font-size: 16px;
-          &__box{
+          #product_prefecture_id{
             display: inline-block;
             position: relative;
             width: 100%;
@@ -346,6 +389,11 @@ body{
             height: 48px;
             line-height: 48px;
           }
+        }
+        &__error{
+          text-align: center;
+          color: red;
+          font-size: medium;
         }
       }
       &__time{
@@ -366,15 +414,20 @@ body{
           font-family: Arial, Helvetica, sans-serif;
           color: gray;
           font-size: 16px;
-          &__box{
+          #product_deliveryleadtime_id{
             display: inline-block;
             position: relative;
-            width: inherit;
+            width: 100%;
             border: 1px solid  darkslategray;
             border-radius: 4px;
             height: 48px;
             line-height: 48px;
           }
+        }
+        &__error{
+          text-align: center;
+          color: red;
+          font-size: medium;
         }
       }
     }
@@ -408,6 +461,11 @@ body{
           border-radius: 4px;
           line-height: 30px;
           text-align: right;
+        }
+        &__error{
+          text-align: center;
+          color: red;
+          font-size: medium;
         }
       }
     }
