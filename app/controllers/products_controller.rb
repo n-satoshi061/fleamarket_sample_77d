@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create]
+  before_action :set_product, except: [:index, :new, :create,:get_category_children, :get_category_grandchildren]
 
   require 'payjp'
 
@@ -11,6 +11,8 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
+    #セレクトボックスの初期値設定
+    #データベースから、親カテゴリーのみ抽出し、配列化
     @category_parent_first = Category.where(ancestry: nil)
   end
 
