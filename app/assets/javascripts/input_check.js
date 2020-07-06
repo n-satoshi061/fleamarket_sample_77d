@@ -58,6 +58,16 @@ $(function() {
       if( !value.match(/^(?=.*?[a-z])(?=.*?\d)[a-z\d]{7,100}$/i) ){
         input_error = true;
       }
+    } else if( this.id == 'card_number' ){
+      // 数字16桁
+      if( !value.match(/^\d{16}$/) ){
+        input_error = true;
+      }
+    } else if( this.id == 'cvc' ){
+      // 数字16桁
+      if( !value.match(/^\d{3,4}$/) ){
+        input_error = true;
+      }
     }
 
     if( empty_error ){
@@ -145,6 +155,7 @@ $(function() {
           //送信ボタンを閉じる
           $('.step_btn').prop("disabled", true);
           $('.step_btn').css('background-color', '#ccc');
+          $('.step_btn').css('border-color', '#ccc');
       }
   });
 });

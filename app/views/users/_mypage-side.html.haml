@@ -49,9 +49,9 @@
         = link_to "#", class: "list" do
           お問い合わせ
           %i.fa.fa-chevron-right.arrow-right
-    %h3.side-menu__setting
+    %h3.setting
       設定
-    %ul.side-menu__mypage-nav__lists
+    %ul.mypage-nav__lists
       %li
         = link_to "#", class: "list" do
           プロフィール
@@ -65,8 +65,8 @@
           支払い方法
           %i.fa.fa-chevron-right.arrow-right
       %li
-        = link_to "#", class: "list" do
-          メール/パスワード
+        = link_to new_card_path, class: "list" do
+          クレジットカード情報
           %i.fa.fa-chevron-right.arrow-right
       %li
         = link_to "#", class: "list" do

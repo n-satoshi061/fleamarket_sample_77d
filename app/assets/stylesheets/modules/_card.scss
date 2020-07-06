@@ -130,11 +130,32 @@
             }
           }
         }
+        .card_info{
+          &__title{
+            font-size: 20px;
+            font-weight: bold;
+          }
+          &__num{
+            font-size: 18px;
+            text-align: center;
+            margin: 30px;
+          }
+          &__limit{
+            &__title{
+              font-size: 20px;
+              font-weight: bold;
+            }
+            &__month-year{
+              font-size: 18px;
+              text-align: center;
+              margin: 30px;
+            }
+          }
+        }
       }
       &__form-btn-default {
         margin-top: 32px;
         background: #ea352d;
-        border: 1px solid #ea352d;
         color: #fff;
         display: block;
         width: 100%;
@@ -143,6 +164,21 @@
         border-radius: 4px;
         cursor: pointer;
         text-align: center;
+        .card_btn{
+          height: 100%;
+          width: 100%;
+          border: 1px solid #ea352d;
+        }
+      }
+      .match_error{
+        color: #ea352d;
+        font-size: 14px;
+        margin-top: 8px;
+      }
+      .error{
+        color: #ea352d;
+        font-size: 14px;
+        margin-top: 8px;
       }
     }
   }

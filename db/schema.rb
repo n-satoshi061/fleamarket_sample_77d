@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2020_06_23_023849) do
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
     t.integer "user_id", null: false
     t.string "customer_id", null: false
     t.string "card_id", null: false
@@ -41,6 +40,13 @@ ActiveRecord::Schema.define(version: 2020_06_23_023849) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
+  create_table "countries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "prefecture_id"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
     t.bigint "product_id", null: false
@@ -53,11 +59,11 @@ ActiveRecord::Schema.define(version: 2020_06_23_023849) do
     t.string "title", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
-    t.string "from_area", null: false
-    t.boolean "delivery_person", null: false
-    t.string "delivery_leadtime", null: false
-    t.string "delivery_way", null: false
-    t.integer "status", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "deliveryperson_id", null: false
+    t.integer "deliveryleadtime_id", null: false
+    t.integer "deliveryway_id", null: false
+    t.integer "productstatus_id", null: false
     t.bigint "category_id", null: false
     t.bigint "buyer_id"
     t.bigint "seller_id", null: false
