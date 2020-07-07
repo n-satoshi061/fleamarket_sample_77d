@@ -29,7 +29,7 @@ $(function() {
           'width': `calc(100% - (120px * ${images.length}))`
         })
       if(images.length == 5) {
-        $(".dropzone-area").attr('id', 'nothing');
+        $('.dropzone-area').css('display', 'none');
       }
     // 新しいインプットの表示
     var new_image = $(`<input id="upload-image__btn" class="upload-image" data-image= ${images.length} type="file" name="product[images_attributes][${images.length}][image]">`);
