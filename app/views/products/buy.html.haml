@@ -8,7 +8,7 @@
       .item-inner
         .item-inner__mask
           .item-inner__mask__image
-            = image_tag @image[:image], alt: "test", width: "80", height: "80"
+            = image_tag @product.images.first.image.to_s, alt: "test", width: "80", height: "80"
         .item-info
           %p.item-name
             = @product[:title]
