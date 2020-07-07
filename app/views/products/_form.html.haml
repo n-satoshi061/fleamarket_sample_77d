@@ -12,25 +12,17 @@
             必須
         .contents__form__display__body__text
           最大5枚までアップロードできます
-        .contents__form__display__body__image
-          .contents__form__display__body__image__box
-            .contents__form__display__body__image__box__previews
-              - if @product.persisted?
-                - @product.images.each_with_index do |preview, i|
-                  = image_tag preview.image.url, data: { index: i }, width: "100", height: '100'
-              = f.fields_for :images do |img|
-                .js-image{"data-index" => "#{img.index}"}
-                = f.label :images, class: 'hidden',for: 'product_images_attributes_0_image' do
-                  %i.fa.fa-camera.fa-2x
-                  =img.file_field :image, class: 'js-file'
-                  %br/
-                  %span.js-remove 
-                  - if @product.persisted?
-                    = img.check_box :_destroy, data:{ index: img.index }, class: 'hidden-destroy'
-                  - if @product.persisted?
-                    .js-image{"data-index" => "#{@product.images.count}"}
-                      = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][image]", class: 'js-file'
-                      .js-remove 削除
+        .sellbox-form__upload--drop#click-btn
+          .sellbox-form__upload--drop--post
+            = f.fields_for :image do |image|
+              .dropzone-container
+                #preview
+                .dropzone-area
+                  = image.label :image, class: "dropzone-box", for: "upload-image__btn" do
+                    .input_area
+                      = image.file_field :image, id: "upload-image__btn", class: "upload-image", 'data-image': 0, type: "file", name: "product[images_attributes][0][image]"
+                    %p クリックしてファイルをアップロード
+            
     .contents__form__product
       .contents__form__product__name
         .contents__form__product__name__title

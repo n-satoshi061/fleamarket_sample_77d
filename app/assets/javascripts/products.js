@@ -1,66 +1,77 @@
-$(document).on('turbolinks:load', ()=> {
-  // 画像用inputを生成する関数
-  const buildFileField = (num)=> {
-    const html = `<div data-index="${num}" class="js-image">
-    <input class="js-file" type="file"
-    name="product[images_attributes][${num}][image]" 
-    id="product_images_attributes_${num}_image"><br>
-    <div class="js-remove">削除</div>
-    </div>`;
-    return html;
-  }
-  
-  // プレビュー用関数
-  const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
-    return html;
-  }
+$(function() {
 
-  let fileIndex = [1,2,3,4,5];
+  //イメージの挿入
+  var dropzone = $('.dropzone-area');
+  var images = [];
+  var inputs  =[];
+  var input_area = $('.input_area');
+  var preview = $('#preview');
 
-  lastIndex = $('.js-image:last').data('index');
-  fileIndex.splice(0, lastIndex);
-  
-  $('.hidden-destroy').hide();
-
-  $('.contents__form__display__body__image__box').on('change', '.js-file', function(e) {
-    const targetIndex = $(this).parent().data('index');
-    const file = e.target.files[0];
-    const blobUrl = window.URL.createObjectURL(file);
-
-    let image_length = $(".js-image").length
-
-    // ５枚以上の投稿制限
-    if ($(".js-image").length >= 6) {
-      alert("これ以上投稿できない")
-      return false;
+  $(document).on('change', 'input[type= "file"].upload-image',function(event){
+    var file = $(this).prop('files')[0];
+    var reader = new FileReader();
+    inputs.push($(this));
+    var img = $(`<div class= "img_view"><img></div>`);
+    reader.onload = function(e) {
+      var btn_wrapper = $('<div class="upload-image__prev--btn"><div class="edit-btn">編集</div><div class="delete-btn">削除</div></div>');
+      img.append(btn_wrapper);
+      img.find('img').attr({src: e.target.result
+      })
     }
-    // 該当indexを持つimgがあれば取得して変数imgに入れる(画像変更の処理)
-    if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
-      img.setAttribute('image', blobUrl);
-    } else if(image_length < 6){  
-      // 
-      $('.contents__form__display__body__image__box__previews').append(buildImg(targetIndex, blobUrl));
-      // fileIndex、新規投稿分の配列を取り除く
-      $('.contents__form__display__body__image__box').append(buildFileField(fileIndex[0]));
-      fileIndex.shift();
-      // 配列のダブりをなくす
-      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
-    }
+    reader.readAsDataURL(file);
+    images.push(img);
+        $('#preview').empty();
+        $.each(images, function(index, image) {
+          image.attr('data-image', index);
+          preview.append(image);
+        })
+        dropzone.css({
+          'width': `calc(100% - (120px * ${images.length}))`
+        })
+      if(images.length == 5) {
+        $(".dropzone-area").attr('id', 'nothing');
+      }
+    // 新しいインプットの表示
+    var new_image = $(`<input id="upload-image__btn" class="upload-image" data-image= ${images.length} type="file" name="product[images_attributes][${images.length}][image]">`);
+    input_area.prepend(new_image);
   });
 
-  //削除機能
-  $('.contents__form__display__body__image__box').on('click', '.js-remove', function() {
-    const targetIndex = $(this).parent().data('index');
-    // 該当indexを振られているチェックボックスを取得する
-    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
-    // チェックボックスが存在すればチェックを入れる
-    if (hiddenCheck) hiddenCheck.prop('checked', true);
-
-    $(this).parent().remove();
-    $(`img[data-index="${targetIndex}"]`).remove();
-
-    // 画像入力欄が0個にならないようにしておく
-    if ($('.js-file').length == 0) $('.contents__form__display__body__image__box').append(buildFileField(fileIndex[0]));
+  // 削除と編集
+  $(document).on('click', '.delete-btn', function() {
+    var target_image = $(this).parent().parent();
+    $.each(inputs, function(index, input){
+      if ($(this).data('image') == target_image.data('image')){
+        $(this).remove();
+        target_image.remove();
+        var num = $(this).data('image');
+        images.splice(num, 1);
+        inputs.splice(num, 1);
+        if(inputs.length == 0) {
+          $('input[type= "file"].upload-image').attr({
+            'data-image': 0
+          })
+        }
+      }
+    })
+    $('input[type= "file"].upload-image:first').attr({
+      'data-image': inputs.length
+    })
+    $.each(inputs, function(index, input) {
+      var input = $(this)
+      input.attr({
+        'data-image': index
+      })
+      $('input[type= "file"].upload-image:first').after(input)
+    })
+      dropzone.css({
+        'display': 'block'
+      })
+      $.each(images, function(index, image) {
+        image.attr('data-image', index);
+        preview.append(image);
+      })
+      dropzone.css({
+        'width': `calc(100% - (120px * ${images.length}))`
+      });
   });
-});
+})
