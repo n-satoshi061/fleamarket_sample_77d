@@ -16,11 +16,10 @@
           .sellbox-form__upload--drop--post
             = f.fields_for :image do |image|
               .dropzone-container
-
                 #preview
                   - @product.images.each_with_index do |image, i|
                     -if image.persisted?
-                      .img_view{data: {index: i}} ##
+                      .img_view{data: {index: i}}
                         = image_tag image.image.url
                         .upload-image__prev--btn
                           .edit-btn
