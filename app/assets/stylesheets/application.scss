@@ -1,13 +1,13 @@
 @import "modules/users";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "reset"; 
-@import "./modules/header"; 
-@import "./modules/footer"; 
-@import "./modules/main-visual"; 
-@import "./modules/products"; 
+@import "reset";
+@import "./modules/header";
+@import "./modules/footer";
+@import "./modules/main-visual";
+@import "./modules/products";
 @import "./modules/products_form";
-@import "./modules/product-show"; 
+@import "./modules/product-show";
 @import "./modules/mypage-side";
 @import "./modules/mypage-main";
 @import "./modules/logout";
@@ -16,5 +16,6 @@
 @import "./modules/products_form";
 @import "./modules/buy";
 @import "./modules/delete_product";
+@import "./modules/edit";
 @import "slick-theme";
 @import "slick";

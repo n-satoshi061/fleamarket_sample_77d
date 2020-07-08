@@ -45,8 +45,12 @@ class ProductsController < ApplicationController
     @category_edit_child = @product.category.parent
     @category_edit_parent = @category_edit_child.parent
     @category_parent_first = Category.where(ancestry: nil)
+    @product= Product.find(params[:id])
+    # @images = @product.images.order(id: "DESC")
+    # @images = Image.where(item_id: params[:id])
+    @product.images.build
   end
-  
+
   def update
     if @product.update(product_params)
       redirect_to root_path
@@ -54,7 +58,7 @@ class ProductsController < ApplicationController
       render :edit
     end
   end
-  
+
 
   def show
     @product = Product.find(params[:id])
