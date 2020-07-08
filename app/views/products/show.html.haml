@@ -86,7 +86,7 @@
     = link_to "#", class: "disabeled-btn" do
       売り切れました
   - elsif user_signed_in? && current_user.id != @product.seller.id
-    = link_to "#", class: "product-buy-btn" do
+    = link_to buy_product_path(@product), class: "product-buy-btn" do
       購入画面に進む
   - else
     = link_to new_user_session_path, class: "product-buy-btn" do
