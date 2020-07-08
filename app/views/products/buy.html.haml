@@ -8,7 +8,7 @@
       .item-inner
         .item-inner__mask
           .item-inner__mask__image
-            = image_tag @image[:image], alt: "test", width: "80", height: "80"
+            = image_tag @product.images.first.image.to_s, alt: "test", width: "80", height: "80"
         .item-info
           %p.item-name
             = @product[:title]
@@ -51,6 +51,7 @@
     .purchase-container__content__box
       = form_tag(action: :pay, method: :post) do
         = text_field_tag :buy_price, @product[:price], { type: "hidden", class: "text" }
+        = text_field_tag :id, @product[:id], { type: "hidden", class: "text" }
         - if card_info == false
           = button_tag '購入する', type: 'submit', class: 'buy-button', disabled: true
         - else

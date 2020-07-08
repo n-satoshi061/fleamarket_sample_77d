@@ -51,7 +51,6 @@
         }
         .card-lists {
           margin: 8px 0 0;
-          font-size: 0;
           li {
             display: inline-block;
             vertical-align: middle;
@@ -60,7 +59,6 @@
       }
       .input-group-form {
         margin-top: 32px;
-        font-size: 0;
         .card-limit {
           font-weight: 600;
           display: inline-block;
@@ -69,19 +67,22 @@
           font-weight: 600;
           display: inline-block;
         }
-        .limit-month {
-          display: inline-block;
-          width: 50%;
-          position: relative;
-          background: #fff;
-          margin: 8px 0 0;
-        }
-        .limit-year {
-          display: inline-block;
-          width: 50%;
-          position: relative;
-          background: #fff;
-          margin: 8px 0 0;
+        .use_limit{
+          display: flex;
+          .use_limit-month {
+            display: inline-block;
+            width: 50%;
+            position: relative;
+            background: #fff;
+            margin: 8px 0 0;
+          }
+          .use_limit-year {
+            display: inline-block;
+            width: 50%;
+            position: relative;
+            background: #fff;
+            margin: 8px 0 0;
+          }
         }
         .select-default {
           width: calc(100% - 38px);

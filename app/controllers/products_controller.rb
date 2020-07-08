@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create,:get_category_children, :get_category_grandchildren]
+  before_action :move_to_index, except: [:index, :show]
+  before_action :set_product, except: [:index, :new, :create, :pay, :get_category_children, :get_category_grandchildren]
 
   require 'payjp'
 
@@ -80,6 +81,11 @@ class ProductsController < ApplicationController
     customer: card.customer_id,
     currency: 'jpy',
     )
+    # 購入履歴を残す
+    purchase_history = Product.find(params[:id])
+    purchase_history.buyer_id = current_user.id
+    purchase_history.save
+
     redirect_to root_path
   end
 
