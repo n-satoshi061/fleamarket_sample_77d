@@ -40,8 +40,11 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
+    @category_edit_grandchild = @product.category
+    @category_edit_child = @category_edit_grandchild.parent
+    @category_edit_parent = @category_edit_child.parent
     @category_parent_first = Category.where(ancestry: nil)
-    @product= Product.find(params[:id])
     # @images = @product.images.order(id: "DESC")
     # @images = Image.where(item_id: params[:id])
     @product.images.build
@@ -59,7 +62,9 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     # カテゴリ名を取得するために@categoryにレコードをとってくる
-    @category = @product.category
+    @category_grandchild = @product.category
+    @category_child = @category_grandchild.parent
+    @category_parent = @category_child.parent
   end
 
   def buy

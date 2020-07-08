@@ -21,12 +21,10 @@
     function appendGrandchildrenBox(insertHTML){
       let grandchildSelectHtml = '';
       grandchildSelectHtml = `<div class='contents__form__detail__category__text__added' id= 'grandchildren_wrapper'>
-                                <div class='contents__form__detail__category__text2'>
-                                  <select class="contents__form__detail__category__text__select" id="grandchild_category" name="product[category_id]">
-                                    <option value="----" data-category="----">----</option>
-                                    ${insertHTML}
-                                  </select>
-                                </div>
+                                <select class="contents__form__detail__category__text__select" id="grandchild_category" name="product[category_id]">
+                                  <option value="----" data-category="----">----</option>
+                                  ${insertHTML}
+                                </select>
                               </div>`;
       $('.contents__form__detail__category__text').append(grandchildSelectHtml);
     }
