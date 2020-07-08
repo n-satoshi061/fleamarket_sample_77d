@@ -42,10 +42,9 @@ class ProductsController < ApplicationController
   def edit
     @product = Product.find(params[:id])
     @category_edit_grandchild = @product.category
-    @category_edit_child = @product.category.parent
+    @category_edit_child = @category_edit_grandchild.parent
     @category_edit_parent = @category_edit_child.parent
     @category_parent_first = Category.where(ancestry: nil)
-    @product= Product.find(params[:id])
     # @images = @product.images.order(id: "DESC")
     # @images = Image.where(item_id: params[:id])
     @product.images.build

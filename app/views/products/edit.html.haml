@@ -61,7 +61,11 @@
             %span.essential
               必須
           .contents__form__detail__category__text
-            = f.collection_select(:category_id, @category_parent_first, :id, :text, {prompt: "選択してください"}, {id: 'parent_category',class: "contents__form__detail__category__text__box"})
+            = f.collection_select(:category_id, @category_parent_first, :id, :text, {selected: @category_edit_parent.id}, {id: 'parent_category',class: "contents__form__detail__category__text__box"})
+          .contents__form__detail__category__text__added#children_wrapper
+            = f.collection_select(:category_id, @category_edit_child.siblings, :id, :text, {selected: @category_edit_child.id}, {id: 'child_category',class: "contents__form__detail__category__text--select"})
+          .contents__form__detail__category__text__added#grandchildren_wrapper
+            = f.collection_select(:category_id, @category_edit_grandchild.siblings, :id, :text, {selected: @category_edit_grandchild.id}, {id: 'grandchild_category',class: "contents__form__detail__category__text__select"})
           .contents__form__detail__category__error
             - if @product.errors.include?(:category_id)
               = "必須項目です！カテゴリーを選択してください！"
