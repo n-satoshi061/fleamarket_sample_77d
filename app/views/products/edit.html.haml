@@ -1,1 +1,146 @@
-= render partial: 'form'
+= render "layouts/single-header"
+.contents
+  .contents__form
+  = form_for @product do |f|
+    .contents__form__alert
+      = render "products/alert", model: f.object
+    .contents__form__display
+      .contents__form__display__body
+        .contents__form__display__body__title
+          出品画像
+          %span.essential
+            必須
+        .contents__form__display__body__text
+          最大5枚までアップロードできます
+        .sellbox-form__upload--drop#click-btn
+          .sellbox-form__upload--drop--post
+            = f.fields_for :image do |image|
+              .dropzone-container
+                #preview
+                  - @product.images.each_with_index do |image, i|
+                    -if image.persisted?
+                      .img_view{data: {index: i}}
+                        = image_tag image.image.url
+                        .upload-image__prev--btn
+                          .edit-btn
+                            編集
+                          .delete-btn
+                            削除
+                .dropzone-area
+                  = image.label :image, class: "dropzone-box", for: "upload-image__btn" do
+                    .input_area
+                      = image.file_field :image, id: "upload-image__btn", class: "upload-image", 'data-image': 0, type: "file", name: "product[images_attributes][0][image]"
+                    %p クリックしてファイルをアップロード
+    .contents__form__product
+      .contents__form__product__name
+        .contents__form__product__name__title
+          商品名
+          %span.essential
+            必須
+        .contents__form__product__name__text
+          = f.text_area :title, class:"contents__form__product__name__text__box",placeholder:" 40文字まで",maxlength:"40"
+        .contents__form__product__name__error
+          - if @product.errors.include?(:title)
+            = "必須項目です！商品名を入力してください！"
+      .contents__form__product__introduction
+        .contents__form__product__introduction__title
+          商品の説明
+          %span.essential
+            必須
+        .contents__form__product__introduction__text
+          = f.text_area :introduction, class:"contents__form__product__introduction__text__box",placeholder:"商品の説明（必須1,000文字以内)&#13;&#10;(色、素材、重さ、定価、注意点など）&#13;&#10;&#13;&#10;例)2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。".html_safe,maxlength:"1000",cols:"35",rows:"28",wrap:"hard"
+        .contents__form__product__introduction__error
+          - if @product.errors.include?(:introduction)
+            = "必須項目です！商品の説明欄を入力してください！"
+    .contents__form__detail
+      %p
+        商品詳細
+        .contents__form__detail__category
+          .contents__form__detail__category__title
+            カテゴリー
+            %span.essential
+              必須
+          .contents__form__detail__category__text
+            = f.collection_select(:category_id, @category_parent_first, :id, :text, {prompt: "選択してください"}, {id: 'parent_category',class: "contents__form__detail__category__text__box"})
+          .contents__form__detail__category__error
+            - if @product.errors.include?(:category_id)
+              = "必須項目です！カテゴリーを選択してください！"
+        .contents__form__detail__brand
+          .contents__form__detail__brand__title
+            ブランド
+            %span.option
+              任意
+          .contents__form__detail__brand__text
+            %input{class:"contents__form__detail__brand__text__box",placeholder:" 例）シャネル",maxlength:"20"}
+        .contents__form__detail__status
+          .contents__form__detail__status__title
+            商品の状態
+            %span.essential
+              必須
+          .contents__form__detail__status__text
+            = f.collection_select :productstatus_id, Productstatus.all, :id, :name, prompt: "選択してください"
+          .contents__form__detail__status__error
+            - if @product.errors.include?(:productstatus_id)
+              = "必須項目です！商品の状態を選択してください！"
+    .contents__form__delivery
+      %p
+        配送について
+        .contents__form__delivery__price
+          .contents__form__delivery__price__title
+            配送料の負担
+            %span.essential
+              必須
+          .contents__form__delivery__price__text
+            = f.collection_select :deliveryperson_id, Deliveryperson.all, :id, :name, prompt: "選択してください"
+          .contents__form__delivery__price__error
+            - if @product.errors.include?(:deliveryperson_id)
+              = "必須項目です！負担者を選択してください！"
+        .contents__form__delivery__person
+          .contents__form__delivery__person__title
+            配送の方法
+            %span.essential
+              必須
+          .contents__form__delivery__person__text
+            = f.collection_select :deliveryway_id, Deliveryway.all, :id, :name, prompt: "選択してください"
+          .contents__form__delivery__person__error
+            - if @product.errors.include?(:deliveryway_id)
+              = "必須項目です！配送の方法を選択してください！"
+          .contents__form__delivery__area__title
+            発送元の地域
+            %span.essential
+              必須
+          .contents__form__delivery__area__text
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
+          .contents__form__delivery__area__error
+            - if @product.errors.include?(:prefecture_id)
+              = "必須項目です！発送元の地域を選択してください！"
+        .contents__form__delivery__time
+          .contents__form__delivery__time__title
+            配送までの日数
+            %span.essential
+              必須
+          .contents__form__delivery__time__text
+            = f.collection_select :deliveryleadtime_id, Deliveryleadtime.all, :id, :name, prompt: "選択してください"
+          .contents__form__delivery__time__error
+            - if @product.errors.include?(:deliveryleadtime_id)
+              = "必須項目です！発送までの日数を選択してください！"
+    .contents__form__sale
+      %p
+        価格 (¥300~9,999,999)
+        .contents__form__sale__price
+          .contents__form__sale__price__title
+            販売価格
+            %span.essential
+              必須
+            %span.price
+          = f.number_field :price, class:"contents__form__sale__price__box",placeholder:"0",maxlength:"20"
+        .contents__form__sale__price__error
+          - if @product.errors.include?(:price)
+            = "必須項目です！指定の金額内で入力してください！"
+    .contents__form__motion
+      - if @product.new_record?
+        = f.submit "出品する",data: { disable_with: "登録中..." } ,class:"contents__form__motion__auctionbtn"
+      - if @product.persisted?
+        = f.submit "編集する",data: { disable_with: "変更中..." } ,class:"contents__form__motion__auctionbtn"
+      = link_to "戻る", root_path, class: "contents__form__motion__returnbtn"
+= render "layouts/single-footer"
