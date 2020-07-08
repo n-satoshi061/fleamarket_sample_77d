@@ -40,6 +40,10 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
+    @category_edit_grandchild = @product.category
+    @category_edit_child = @product.category.parent
+    @category_edit_parent = @category_edit_child.parent
     @category_parent_first = Category.where(ancestry: nil)
   end
   
