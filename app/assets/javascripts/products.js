@@ -13,7 +13,7 @@ $(function() {
   const buildImg = (index, url) => {
     const html = `<div data-index="${index}" class="phote">
                   <image src="${url}" width="120px" height="150px">
-                  <button class="js-remove ">削除</button>
+                  <div class="js-remove ">削除</div>
                   </div>`;
     return html;
   };

@@ -17,7 +17,7 @@
             - if @product.persisted?
               - @product.images.each_with_index do |preview, i|
                 .test{data: {index: i}}
-                  = image_tag preview.image.url, data: { index: i }, width: "120px", height: '150px' 
+                  = image_tag preview.image.url, data: { index: i }, width: "120px", height: '150px'
                   .js-remove 削除
           #previews
             = f.fields_for :images do |preview|
