@@ -64,7 +64,7 @@ class ProductsController < ApplicationController
     # カテゴリ名を取得するために@categoryにレコードをとってくる
     @category_grandchild = @product.category
     @category_child = @category_grandchild.parent
-    # @category_parent = @category_child.parent
+    @category_parent = @category_child.parent
   end
 
   def buy
