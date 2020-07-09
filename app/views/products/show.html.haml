@@ -39,9 +39,15 @@
         %tr
           %th カテゴリー
           %td
-            = link_to "#{@category_parent.text}", "#"
-            = link_to "#{@category_child.text}", "#"
-            = link_to "#{@category_grandchild.text}", "#"
+            - if @category.ancestry == nil
+              = link_to "#{@category.text}", "#"
+            - elsif @category.ancestry.include?("/")
+              = link_to "#{@category.parent.parent.text}", "#"
+              = link_to "#{@category.parent.text}", "#"
+              = link_to "#{@category.text}", "#"
+            - else
+              = link_to "#{@category.parent.text}", "#"
+              = link_to "#{@category.text}", "#"
         %tr
           %th ブランド
           %td ブランドA
