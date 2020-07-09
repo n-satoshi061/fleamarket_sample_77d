@@ -1,4 +1,4 @@
-= render "layouts/main-header" 
+= render "layouts/main-header"
 
 %section.products-container
   %h1.products-name
@@ -6,7 +6,7 @@
   .product-content.clearfix
     .product-content__photo
       .owl-carousel
-        - if @product.buyer_id.present? 
+        - if @product.buyer_id.present?
           .sold
             .sold__text
               SOLD
@@ -19,12 +19,12 @@
         - @product.images.each.with_index(1) do |image, index|
           %li.owl-dot
             = image_tag image.image.to_s, class: "mini-item-image"
-            
+
     %table.product-content__detail
       %tbody
         %tr
           %th 出品者
-          %td 
+          %td
             = link_to "#" do
               = @product.seller.nickname
             .item-user-raitings
@@ -39,9 +39,9 @@
         %tr
           %th カテゴリー
           %td
-            = link_to "#{@category_parent.text}", "#"
-            = link_to "#{@category_child.text}", "#"
-            = link_to "#{@category_grandchild.text}", "#"        
+            -# = link_to "#{@category_parent.text}", "#"
+            -# = link_to "#{@category_child.text}", "#"
+            -# = link_to "#{@category_grandchild.text}", "#"
         %tr
           %th ブランド
           %td ブランドA
@@ -72,7 +72,7 @@
     %span.product-price__fee
       = @product.deliveryperson.name
   - if user_signed_in? && current_user.id == @product.seller.id
-    = link_to "編集する",edit_product_path(@product), class: "product-buy-btn" 
+    = link_to "編集する",edit_product_path(@product), class: "product-buy-btn"
     = link_to product_path, method: :delete, data: {confirm: "削除しますか？"}, class: "product-buy-btn" do
       削除する
   - elsif @product.buyer_id.present?
@@ -111,6 +111,6 @@
         %button.comment-submit
           %span コメントする
 
-= render "layouts/footer-publicity" 
-= render "layouts/footer-introduction" 
-= render "layouts/bottom-camera" 
+= render "layouts/footer-publicity"
+= render "layouts/footer-introduction"
+= render "layouts/bottom-camera"

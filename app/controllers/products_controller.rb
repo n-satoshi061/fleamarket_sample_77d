@@ -47,7 +47,7 @@ class ProductsController < ApplicationController
     @category_parent_first = Category.where(ancestry: nil)
     # @images = @product.images.order(id: "DESC")
     # @images = Image.where(item_id: params[:id])
-    @product.images.build
+    # @product.images.build
   end
 
   def update
@@ -64,7 +64,7 @@ class ProductsController < ApplicationController
     # カテゴリ名を取得するために@categoryにレコードをとってくる
     @category_grandchild = @product.category
     @category_child = @category_grandchild.parent
-    @category_parent = @category_child.parent
+    # @category_parent = @category_child.parent
   end
 
   def buy
