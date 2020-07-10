@@ -1,5 +1,5 @@
 # README
-![](https://gyazo.com/a358b4002c6abd0725abf22395b41f1d)
+![](https://gyazo.com/dcfde76fbd5fa505cfaffa5635e76d4f)
 
 ## Usersテーブル
 |Column|Type|Options|
