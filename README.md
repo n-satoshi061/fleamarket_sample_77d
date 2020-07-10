@@ -95,3 +95,5 @@
 
 ### Association
 - belongs_to :product, optional:true, dependent: :destroy
+
+あああ
