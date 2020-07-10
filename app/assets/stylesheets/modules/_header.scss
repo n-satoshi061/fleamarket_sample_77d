@@ -92,7 +92,7 @@
               background-color: #fff;
               width: 240px;
               &__list{
-                background-color: #fff;
+                background-color: #f8f8f8;
                 display: flex;
                 flex-direction: column;
                 position: relative;
@@ -101,7 +101,6 @@
                   width: 240px;
                   color: #333;
                   font-size: 14px;
-                  padding: 3px 30px 3px 5px;
                   position: relative;
                 }
               }

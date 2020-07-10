@@ -464,6 +464,7 @@ body {
           border-radius: 4px;
           line-height: 30px;
           text-align: right;
+          float: right;
         }
         &__error {
           text-align: center;
@@ -505,4 +506,7 @@ body {
       }
     }
   }
+}
+.field_with_errors {
+  width: 100%;
 }
