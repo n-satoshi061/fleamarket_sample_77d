@@ -4,9 +4,10 @@
   .main-content
     %form.logout
       .logout__box
-        %button.logout__box__btn
+        %label
           = link_to destroy_user_session_path, method: :delete do
-            ログアウト
+            %button.logout__box__btn
+              ログアウト
 
 = render "layouts/footer-publicity" 
 = render "layouts/footer-introduction" 

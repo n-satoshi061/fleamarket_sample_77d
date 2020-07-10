@@ -1,6 +1,7 @@
 .bottom-camera 
   .bottom-camera__text 
     %p 出品する 
-  .bottom-camera__icon 
+  %label
     = link_to new_product_path do 
-      = image_tag "icon/icon_camera.png", class:"camera-image", alt:"カメラのアイコン" 
+      .bottom-camera__icon 
+        = image_tag "icon/icon_camera.png", class:"camera-image", alt:"カメラのアイコン" 
